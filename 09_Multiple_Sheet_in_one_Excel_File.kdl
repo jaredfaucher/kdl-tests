@@ -1,0 +1,2368 @@
+Nodes {
+    (n1): {
+        "name": "File Reader",
+        "factory": "org.knime.base.node.io.filereader.FileReaderNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "DataURL": "knime://knime.workflow/data/adult.csv"
+            },
+            {
+                "Delimiters": [
+                    {
+                        "Delim0": [
+                            {
+                                "pattern": "%%00010"
+                            },
+                            {
+                                "combineMultiple": true
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": true
+                            }
+                        ]
+                    },
+                    {
+                        "Delim1": [
+                            {
+                                "pattern": "%%00013"
+                            },
+                            {
+                                "combineMultiple": true
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": true
+                            }
+                        ]
+                    },
+                    {
+                        "Delim2": [
+                            {
+                                "pattern": ","
+                            },
+                            {
+                                "combineMultiple": false
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Quotes": [
+                    {
+                        "Quote0": [
+                            {
+                                "left": "\""
+                            },
+                            {
+                                "right": "\""
+                            },
+                            {
+                                "EscChar": "\\",
+                                "data_type": "xchar"
+                            },
+                            {
+                                "DontRem": false
+                            }
+                        ]
+                    },
+                    {
+                        "Quote1": [
+                            {
+                                "left": "'"
+                            },
+                            {
+                                "right": "'"
+                            },
+                            {
+                                "EscChar": "\\",
+                                "data_type": "xchar"
+                            },
+                            {
+                                "DontRem": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Comments": []
+            },
+            {
+                "WhiteSpaces": [
+                    {
+                        "WhiteSpace0": " "
+                    },
+                    {
+                        "WhiteSpace1": "%%00009"
+                    }
+                ]
+            },
+            {
+                "CombineMultDelims": false
+            },
+            {
+                "SkipFirstLines": 0,
+                "data_type": "xlong"
+            },
+            {
+                "NewLineInQuotes": false
+            },
+            {
+                "hasColHdr": true
+            },
+            {
+                "hasRowHdr": false
+            },
+            {
+                "ignoreEmptyLines": true
+            },
+            {
+                "rowPrefix": "Row"
+            },
+            {
+                "RowDelims": [
+                    {
+                        "RDelim0": "%%00010"
+                    },
+                    {
+                        "SkipEmptyLine0": true
+                    },
+                    {
+                        "RDelim1": "%%00013"
+                    },
+                    {
+                        "SkipEmptyLine1": true
+                    }
+                ]
+            },
+            {
+                "MissingPatterns": []
+            },
+            {
+                "FormatParameter": []
+            },
+            {
+                "globalMissPattern": "",
+                "isnull": true
+            },
+            {
+                "DecimalSeparator": ".",
+                "data_type": "xchar"
+            },
+            {
+                "ThrousandsSeparator": "%%00000",
+                "data_type": "xchar"
+            },
+            {
+                "ignEmtpyTokensAtEOR": false
+            },
+            {
+                "acceptShortLines": false
+            },
+            {
+                "uniquifyRowID": false
+            },
+            {
+                "MaxNumOfRows": -1,
+                "data_type": "xlong"
+            },
+            {
+                "ColNumDetermLine": -1
+            },
+            {
+                "CharsetName": "",
+                "isnull": true
+            },
+            {
+                "ConnectTimeoutInSeconds": 1
+            },
+            {
+                "delimsAtEOLuserVal": false
+            },
+            {
+                "numOfColumns": 15
+            },
+            {
+                "ColumnProperties": [
+                    {
+                        "0": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "age"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "1": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "workclass"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "2": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "fnlwgt"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "3": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "education"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "4": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "education-num"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "5": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "marital-status"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "6": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "occupation"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "7": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "relationship"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "8": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "race"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "9": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "sex"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "10": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "capital-gain"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "11": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "capital-loss"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "12": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "",
+                                "isnull": true
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "hours-per-week"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "13": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "native-country"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "14": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "income"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n2): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Divorced"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n3): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Never-married"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n4): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Separated"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n5): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult.xlsx"
+            },
+            {
+                "sheetname": "Divorced"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n7): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult.xlsx"
+            },
+            {
+                "sheetname": "Never-married"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n8): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult.xlsx"
+            },
+            {
+                "sheetname": "Separated"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n9): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Separated",
+                        "exposed_variable": "category"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n10): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult_fv.xlsx"
+            },
+            {
+                "sheetname": "Divorced",
+                "used_variable": "category"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n11): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Never-married",
+                        "exposed_variable": "category"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n12): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult_fv.xlsx"
+            },
+            {
+                "sheetname": "Never-married",
+                "used_variable": "category"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n13): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "marital-status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "Divorced",
+                        "exposed_variable": "category"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n14): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult_fv.xlsx"
+            },
+            {
+                "sheetname": "Separated",
+                "used_variable": "category"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n16): {
+        "name": "Excel Sheet Appender (XLS)",
+        "factory": "org.knime.ext.poi2.node.write2.XLSAppenderNodeFactory",
+        "bundle_name": "KNIME POI (xls/xlsx) Plug-in",
+        "bundle_symbolic_name": "org.knime.ext.poi2",
+        "bundle_version": "3.7.0.v201811161634",
+        "feature_name": "KNIME Excel Support",
+        "feature_symbolic_name": "org.knime.features.ext.poi.feature.group",
+        "feature_version": "3.7.0.v201811161634",
+        "model": [
+            {
+                "xCellOffset": 0
+            },
+            {
+                "yCellOffset": 0
+            },
+            {
+                "writeColHdr": true
+            },
+            {
+                "writeRowHdr": false
+            },
+            {
+                "filename": "knime://knime.workflow/adult_loop.xlsx"
+            },
+            {
+                "sheetname": "Divorced",
+                "used_variable": "relationship"
+            },
+            {
+                "missingPattern": ""
+            },
+            {
+                "overwrite_ok": false
+            },
+            {
+                "open_file": false
+            },
+            {
+                "file_must_exist": false
+            },
+            {
+                "do_not_overwrite_sheet": false
+            },
+            {
+                "landscape": false
+            },
+            {
+                "autosize": false
+            },
+            {
+                "paper_size": 1,
+                "data_type": "xshort"
+            },
+            {
+                "write_missing_values": false
+            },
+            {
+                "evaluate_formula": false
+            },
+            {
+                "xlswriter2": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "relationship"
+                            },
+                            {
+                                "8": "race"
+                            },
+                            {
+                                "9": "sex"
+                            },
+                            {
+                                "10": "capital-gain"
+                            },
+                            {
+                                "11": "capital-loss"
+                            },
+                            {
+                                "12": "hours-per-week"
+                            },
+                            {
+                                "13": "native-country"
+                            },
+                            {
+                                "14": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 0
+    },
+    (n17): {
+        "name": "Group Loop Start",
+        "factory": "org.knime.base.node.meta.looper.group.GroupLoopStartNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "GroupColNames_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "GroupColNames": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "relationship"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 14
+                            },
+                            {
+                                "0": "age"
+                            },
+                            {
+                                "1": "workclass"
+                            },
+                            {
+                                "2": "fnlwgt"
+                            },
+                            {
+                                "3": "education"
+                            },
+                            {
+                                "4": "education-num"
+                            },
+                            {
+                                "5": "marital-status"
+                            },
+                            {
+                                "6": "occupation"
+                            },
+                            {
+                                "7": "race"
+                            },
+                            {
+                                "8": "sex"
+                            },
+                            {
+                                "9": "capital-gain"
+                            },
+                            {
+                                "10": "capital-loss"
+                            },
+                            {
+                                "11": "hours-per-week"
+                            },
+                            {
+                                "12": "native-country"
+                            },
+                            {
+                                "13": "income"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "SortedInput_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "SortedInput": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n18): {
+        "name": "Variable Loop End",
+        "factory": "org.knime.base.node.meta.looper.variableloopend.VariableLoopEndNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "selection": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    }
+}
+
+Workflow {
+    "connections": {
+        (n1:1)-->(n3:1),
+        (n1:1)-->(n2:1),
+        (n1:1)-->(n4:1),
+        (n1:1)-->(n9:1),
+        (n1:1)-->(n11:1),
+        (n1:1)-->(n13:1),
+        (n1:1)-->(n17:1),
+        (n2:1)-->(n5:1),
+        (n3:1)-->(n7:1),
+        (n4:1)-->(n8:1),
+        (n9:1)-->(n14:1),
+        (n11:1)-->(n12:1),
+        (n13:1)-->(n10:1),
+        (n16)~~>(n18:1),
+        (n17:1)-->(n16:1)
+    }
+}

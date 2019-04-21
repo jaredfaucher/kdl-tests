@@ -1,0 +1,3111 @@
+Nodes {
+    (n44): {
+        "name": "Country Extractor",
+        "factory": "org.knime.webanalytics.internal.countryfromip.CountryExctractorNodeFactory",
+        "bundle_name": "KNIME web analytics plug-in",
+        "bundle_symbolic_name": "org.knime.webanalytics",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Webanalytics",
+        "feature_symbolic_name": "org.knime.features.webanalytics.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "IPSettings_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "IPSettings": "Remote host"
+            }
+        ],
+        "port_count": 1
+    },
+    (n45): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "Country"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 9
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Remote logname"
+                            },
+                            {
+                                "2": "Remote user"
+                            },
+                            {
+                                "3": "Request time"
+                            },
+                            {
+                                "4": "Request method"
+                            },
+                            {
+                                "5": "Request URI"
+                            },
+                            {
+                                "6": "Request Protocol"
+                            },
+                            {
+                                "7": "Status"
+                            },
+                            {
+                                "8": "Size of response (incl. headers)"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Size of response (incl. headers)"
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "1": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.LongCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Count"
+                            },
+                            {
+                                "1": "Sum_V2.5.2"
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": true
+                            },
+                            {
+                                "1": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    },
+    (n46): {
+        "name": "Sorter",
+        "factory": "org.knime.base.node.preproc.sorter.SorterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "incllist": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "Count(Remote host)"
+                    }
+                ]
+            },
+            {
+                "sortOrder": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": false
+                    }
+                ]
+            },
+            {
+                "sortinmemory": false
+            },
+            {
+                "missingToEnd": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n47): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "RowNumber_RowFilter"
+                    },
+                    {
+                        "RowRangeStart": 0
+                    },
+                    {
+                        "RowRangeEnd": 9
+                    },
+                    {
+                        "RowRangeInclude": true
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n48): {
+        "name": "RowID",
+        "factory": "org.knime.base.node.preproc.rowkey2.RowKeyNodeFactory2",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "replaceRowKey_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceRowKey": true
+            },
+            {
+                "newRowKeyColumnName_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "newRowKeyColumnName": "Country"
+            },
+            {
+                "removeRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "removeRowKeyCol": true
+            },
+            {
+                "ensureUniqueness_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "ensureUniqueness": false
+            },
+            {
+                "replaceMissingValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceMissingValues": true
+            },
+            {
+                "appendRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "appendRowKeyCol": false
+            },
+            {
+                "newColumnName4RowKeyValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "newColumnName4RowKeyValues": ""
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n49): {
+        "name": "Line Plot (JavaScript)",
+        "factory": "org.knime.js.base.node.viz.plotter.line.LinePlotNodeFactory",
+        "bundle_name": "KNIME JavaScript Base Views",
+        "bundle_symbolic_name": "org.knime.js.views",
+        "bundle_version": "3.7.0.v201811280939",
+        "feature_name": "KNIME JavaScript Views",
+        "feature_symbolic_name": "org.knime.features.js.views.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "hideInWizard": false
+            },
+            {
+                "generateImage": true
+            },
+            {
+                "showLegend": true
+            },
+            {
+                "autoRange": true
+            },
+            {
+                "useDomainInformation": false
+            },
+            {
+                "showGrid": true
+            },
+            {
+                "showCrosshair": false
+            },
+            {
+                "snapToPoints": false
+            },
+            {
+                "resizeToWindow": true
+            },
+            {
+                "enableViewConfiguration": false
+            },
+            {
+                "enableTitleChange": false
+            },
+            {
+                "enableSubtitleChange": false
+            },
+            {
+                "enableXColumnChange": false
+            },
+            {
+                "enableYColumnChange": false
+            },
+            {
+                "enableXAxisLabelEdit": false
+            },
+            {
+                "enableYAxisLabelEdit": false
+            },
+            {
+                "enableDotSizeChange": false
+            },
+            {
+                "enableZooming": true
+            },
+            {
+                "enableDragZooming": false
+            },
+            {
+                "enablePanning": true
+            },
+            {
+                "showZoomResetButton": false
+            },
+            {
+                "enableSelection": true
+            },
+            {
+                "enableRectangleSelection": false
+            },
+            {
+                "enableLassoSelection": false
+            },
+            {
+                "chartTitle": ""
+            },
+            {
+                "chartSubtitle": ""
+            },
+            {
+                "xCol": "",
+                "isnull": true
+            },
+            {
+                "yCols": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Count(Remote host)"
+                            },
+                            {
+                                "1": "Sum(Size of response (incl. headers))"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "maxRows": 2500
+            },
+            {
+                "selectionColumnName": "Selected (Line Plot)"
+            },
+            {
+                "xAxisLabel": ""
+            },
+            {
+                "yAxisLabel": ""
+            },
+            {
+                "xAxisMin": "",
+                "isnull": true
+            },
+            {
+                "xAxisMax": "",
+                "isnull": true
+            },
+            {
+                "yAxisMin": "",
+                "isnull": true
+            },
+            {
+                "yAxisMax": "",
+                "isnull": true
+            },
+            {
+                "dot_size": "3"
+            },
+            {
+                "imageWidth": 800
+            },
+            {
+                "imageHeight": 600
+            },
+            {
+                "backgroundColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "dataAreaColor": "rgba(230,230,230,1.0)"
+            },
+            {
+                "gridColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "displayFullscreenButton": true
+            },
+            {
+                "missingValueMethod": "noGap"
+            },
+            {
+                "showWarningInView": true
+            },
+            {
+                "dateTimeFormats_Internals": [
+                    {
+                        "SettingsModelID": "SMID_datetime"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "dateTimeFormats": [
+                    {
+                        "globalDateTimeLocale_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateTimeLocale": "en"
+                    },
+                    {
+                        "globalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateTimeFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalTimeFormat": "HH:mm:ss"
+                    },
+                    {
+                        "globalZonedDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalZonedDateTimeFormat": "YYYY-MM-DD z"
+                    },
+                    {
+                        "timezone_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "timezone": "Europe/Paris"
+                    }
+                ]
+            },
+            {
+                "reportOnMissingValues": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n50): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "Country"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "*"
+                    },
+                    {
+                        "hasWildCards": true
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n51): {
+        "name": "Byte Converter",
+        "factory": "org.knime.webanalytics.internal.byteconverter.ByteConverterNodeFactory",
+        "bundle_name": "KNIME web analytics plug-in",
+        "bundle_symbolic_name": "org.knime.webanalytics",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Webanalytics",
+        "feature_symbolic_name": "org.knime.features.webanalytics.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "ConvertCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "ConvertCol": "Size of response (incl. headers)"
+            },
+            {
+                "CurrentFormat_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "CurrentFormat": "byte"
+            },
+            {
+                "FutureFormat_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "FutureFormat": "Megabyte"
+            }
+        ],
+        "port_count": 1
+    },
+    (n53): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Month (name)"
+                            },
+                            {
+                                "1": "Day of month"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 12
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Remote logname"
+                            },
+                            {
+                                "2": "Remote user"
+                            },
+                            {
+                                "3": "Request time"
+                            },
+                            {
+                                "4": "Request method"
+                            },
+                            {
+                                "5": "Request URI"
+                            },
+                            {
+                                "6": "Request Protocol"
+                            },
+                            {
+                                "7": "Status"
+                            },
+                            {
+                                "8": "Size of response (incl. headers)"
+                            },
+                            {
+                                "9": "Country"
+                            },
+                            {
+                                "10": "Day of week (number)"
+                            },
+                            {
+                                "11": "Day of week (name)"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Size of response (incl. headers)"
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "1": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.DoubleCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Count"
+                            },
+                            {
+                                "1": "Sum_V2.5.2"
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": true
+                            },
+                            {
+                                "1": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    },
+    (n54): {
+        "name": "RowID",
+        "factory": "org.knime.base.node.preproc.rowkey2.RowKeyNodeFactory2",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "replaceRowKey_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceRowKey": true
+            },
+            {
+                "newRowKeyColumnName_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "newRowKeyColumnName": "Day of month"
+            },
+            {
+                "removeRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "removeRowKeyCol": true
+            },
+            {
+                "ensureUniqueness_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "ensureUniqueness": false
+            },
+            {
+                "replaceMissingValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceMissingValues": true
+            },
+            {
+                "appendRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "appendRowKeyCol": false
+            },
+            {
+                "newColumnName4RowKeyValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "newColumnName4RowKeyValues": ""
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n55): {
+        "name": "Line Plot (JavaScript)",
+        "factory": "org.knime.js.base.node.viz.plotter.line.LinePlotNodeFactory",
+        "bundle_name": "KNIME JavaScript Base Views",
+        "bundle_symbolic_name": "org.knime.js.views",
+        "bundle_version": "3.7.0.v201811280939",
+        "feature_name": "KNIME JavaScript Views",
+        "feature_symbolic_name": "org.knime.features.js.views.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "hideInWizard": false
+            },
+            {
+                "generateImage": true
+            },
+            {
+                "showLegend": true
+            },
+            {
+                "autoRange": true
+            },
+            {
+                "useDomainInformation": false
+            },
+            {
+                "showGrid": true
+            },
+            {
+                "showCrosshair": false
+            },
+            {
+                "snapToPoints": false
+            },
+            {
+                "resizeToWindow": true
+            },
+            {
+                "enableViewConfiguration": false
+            },
+            {
+                "enableTitleChange": false
+            },
+            {
+                "enableSubtitleChange": false
+            },
+            {
+                "enableXColumnChange": false
+            },
+            {
+                "enableYColumnChange": false
+            },
+            {
+                "enableXAxisLabelEdit": false
+            },
+            {
+                "enableYAxisLabelEdit": false
+            },
+            {
+                "enableDotSizeChange": false
+            },
+            {
+                "enableZooming": true
+            },
+            {
+                "enableDragZooming": false
+            },
+            {
+                "enablePanning": true
+            },
+            {
+                "showZoomResetButton": false
+            },
+            {
+                "enableSelection": true
+            },
+            {
+                "enableRectangleSelection": false
+            },
+            {
+                "enableLassoSelection": false
+            },
+            {
+                "chartTitle": ""
+            },
+            {
+                "chartSubtitle": ""
+            },
+            {
+                "xCol": "",
+                "isnull": true
+            },
+            {
+                "yCols": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Count(Remote host)"
+                            },
+                            {
+                                "1": "Sum(Size of response (incl. headers))"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "Month (name)"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "maxRows": 2500
+            },
+            {
+                "selectionColumnName": "Selected (Line Plot)"
+            },
+            {
+                "xAxisLabel": ""
+            },
+            {
+                "yAxisLabel": ""
+            },
+            {
+                "xAxisMin": "",
+                "isnull": true
+            },
+            {
+                "xAxisMax": "",
+                "isnull": true
+            },
+            {
+                "yAxisMin": "",
+                "isnull": true
+            },
+            {
+                "yAxisMax": "",
+                "isnull": true
+            },
+            {
+                "dot_size": "3"
+            },
+            {
+                "imageWidth": 800
+            },
+            {
+                "imageHeight": 600
+            },
+            {
+                "backgroundColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "dataAreaColor": "rgba(230,230,230,1.0)"
+            },
+            {
+                "gridColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "displayFullscreenButton": true
+            },
+            {
+                "missingValueMethod": "noGap"
+            },
+            {
+                "showWarningInView": true
+            },
+            {
+                "dateTimeFormats_Internals": [
+                    {
+                        "SettingsModelID": "SMID_datetime"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "dateTimeFormats": [
+                    {
+                        "globalDateTimeLocale_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateTimeLocale": "en"
+                    },
+                    {
+                        "globalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateTimeFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalTimeFormat": "HH:mm:ss"
+                    },
+                    {
+                        "globalZonedDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalZonedDateTimeFormat": "YYYY-MM-DD z"
+                    },
+                    {
+                        "timezone_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "timezone": "Europe/Paris"
+                    }
+                ]
+            },
+            {
+                "reportOnMissingValues": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n56): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "Request URI"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "/robots.txt"
+                    },
+                    {
+                        "hasWildCards": false
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n57): {
+        "name": "Row Filter",
+        "factory": "org.knime.base.node.preproc.filter.row.RowFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rowFilter": [
+                    {
+                        "RowFilter_TypeID": "StringComp_RowFilter"
+                    },
+                    {
+                        "ColumnName": "Status"
+                    },
+                    {
+                        "include": true
+                    },
+                    {
+                        "deepFiltering": false
+                    },
+                    {
+                        "CaseSensitive": false
+                    },
+                    {
+                        "Pattern": "2*"
+                    },
+                    {
+                        "hasWildCards": true
+                    },
+                    {
+                        "isRegExpr": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n61): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "First(Day of week (number))"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 5
+                            },
+                            {
+                                "0": "Month (name)"
+                            },
+                            {
+                                "1": "Day of month"
+                            },
+                            {
+                                "2": "Count(Remote host)"
+                            },
+                            {
+                                "3": "Sum(Size of response (incl. headers))"
+                            },
+                            {
+                                "4": "First(Day of week (name))"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 3
+                            },
+                            {
+                                "0": "Count(Remote host)"
+                            },
+                            {
+                                "1": "Sum(Size of response (incl. headers))"
+                            },
+                            {
+                                "2": "First(Day of week (name))"
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 3
+                            },
+                            {
+                                "0": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "1": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.DoubleCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "2": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 3
+                            },
+                            {
+                                "0": "Mean"
+                            },
+                            {
+                                "1": "Sum_V2.5.2"
+                            },
+                            {
+                                "2": "First"
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 3
+                            },
+                            {
+                                "0": false
+                            },
+                            {
+                                "1": false
+                            },
+                            {
+                                "2": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    },
+    (n62): {
+        "name": "Column Rename",
+        "factory": "org.knime.base.node.preproc.rename.RenameNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "all_columns": [
+                    {
+                        "0": [
+                            {
+                                "old_column_name": "Mean(Count(Remote host))"
+                            },
+                            {
+                                "new_column_name": "Mean Hits"
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    },
+                    {
+                        "1": [
+                            {
+                                "old_column_name": "Sum(Sum(Size of response (incl. headers)))"
+                            },
+                            {
+                                "new_column_name": "Sum size of response incl. headers"
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    },
+                    {
+                        "2": [
+                            {
+                                "old_column_name": "First(First(Day of week (name)))"
+                            },
+                            {
+                                "new_column_name": "WeekDay"
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n63): {
+        "name": "Sorter",
+        "factory": "org.knime.base.node.preproc.sorter.SorterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "incllist": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "First(Day of week (number))"
+                    }
+                ]
+            },
+            {
+                "sortOrder": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": true
+                    }
+                ]
+            },
+            {
+                "sortinmemory": false
+            },
+            {
+                "missingToEnd": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n64): {
+        "name": "RowID",
+        "factory": "org.knime.base.node.preproc.rowkey2.RowKeyNodeFactory2",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "replaceRowKey_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceRowKey": true
+            },
+            {
+                "newRowKeyColumnName_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "newRowKeyColumnName": "WeekDay"
+            },
+            {
+                "removeRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "removeRowKeyCol": true
+            },
+            {
+                "ensureUniqueness_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "ensureUniqueness": false
+            },
+            {
+                "replaceMissingValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replaceMissingValues": true
+            },
+            {
+                "appendRowKeyCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "appendRowKeyCol": false
+            },
+            {
+                "newColumnName4RowKeyValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "newColumnName4RowKeyValues": ""
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n65): {
+        "name": "Line Plot (JavaScript)",
+        "factory": "org.knime.js.base.node.viz.plotter.line.LinePlotNodeFactory",
+        "bundle_name": "KNIME JavaScript Base Views",
+        "bundle_symbolic_name": "org.knime.js.views",
+        "bundle_version": "3.7.0.v201811280939",
+        "feature_name": "KNIME JavaScript Views",
+        "feature_symbolic_name": "org.knime.features.js.views.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "hideInWizard": false
+            },
+            {
+                "generateImage": true
+            },
+            {
+                "showLegend": true
+            },
+            {
+                "autoRange": true
+            },
+            {
+                "useDomainInformation": false
+            },
+            {
+                "showGrid": true
+            },
+            {
+                "showCrosshair": false
+            },
+            {
+                "snapToPoints": false
+            },
+            {
+                "resizeToWindow": true
+            },
+            {
+                "enableViewConfiguration": false
+            },
+            {
+                "enableTitleChange": false
+            },
+            {
+                "enableSubtitleChange": false
+            },
+            {
+                "enableXColumnChange": false
+            },
+            {
+                "enableYColumnChange": false
+            },
+            {
+                "enableXAxisLabelEdit": false
+            },
+            {
+                "enableYAxisLabelEdit": false
+            },
+            {
+                "enableDotSizeChange": false
+            },
+            {
+                "enableZooming": true
+            },
+            {
+                "enableDragZooming": false
+            },
+            {
+                "enablePanning": true
+            },
+            {
+                "showZoomResetButton": false
+            },
+            {
+                "enableSelection": true
+            },
+            {
+                "enableRectangleSelection": false
+            },
+            {
+                "enableLassoSelection": false
+            },
+            {
+                "chartTitle": "",
+                "isnull": true
+            },
+            {
+                "chartSubtitle": "",
+                "isnull": true
+            },
+            {
+                "xCol": "",
+                "isnull": true
+            },
+            {
+                "yCols": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 4
+                            },
+                            {
+                                "0": "First(Day of week)"
+                            },
+                            {
+                                "1": "Mean Hits"
+                            },
+                            {
+                                "2": "WeekDay"
+                            },
+                            {
+                                "3": "Sum size of response incl. headers"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "maxRows": 2500
+            },
+            {
+                "selectionColumnName": "Selected (Line Plot)"
+            },
+            {
+                "xAxisLabel": "",
+                "isnull": true
+            },
+            {
+                "yAxisLabel": "",
+                "isnull": true
+            },
+            {
+                "xAxisMin": "",
+                "isnull": true
+            },
+            {
+                "xAxisMax": "",
+                "isnull": true
+            },
+            {
+                "yAxisMin": "",
+                "isnull": true
+            },
+            {
+                "yAxisMax": "",
+                "isnull": true
+            },
+            {
+                "dot_size": "3"
+            },
+            {
+                "imageWidth": 800
+            },
+            {
+                "imageHeight": 600
+            },
+            {
+                "backgroundColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "dataAreaColor": "rgba(230,230,230,1.0)"
+            },
+            {
+                "gridColor": "rgba(255,255,255,1.0)"
+            },
+            {
+                "displayFullscreenButton": true
+            },
+            {
+                "missingValueMethod": "noGap"
+            },
+            {
+                "showWarningInView": true
+            },
+            {
+                "dateTimeFormats_Internals": [
+                    {
+                        "SettingsModelID": "SMID_datetime"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "dateTimeFormats": [
+                    {
+                        "globalDateTimeLocale_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateTimeLocale": "en"
+                    },
+                    {
+                        "globalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalDateTimeFormat": "YYYY-MM-DD"
+                    },
+                    {
+                        "globalLocalTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalLocalTimeFormat": "HH:mm:ss"
+                    },
+                    {
+                        "globalZonedDateTimeFormat_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "globalZonedDateTimeFormat": "YYYY-MM-DD z"
+                    },
+                    {
+                        "timezone_Internals": [
+                            {
+                                "SettingsModelID": "SMID_string"
+                            },
+                            {
+                                "EnabledStatus": true
+                            }
+                        ]
+                    },
+                    {
+                        "timezone": "Europe/Paris"
+                    }
+                ]
+            },
+            {
+                "reportOnMissingValues": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n66): {
+        "name": "Web Log Reader",
+        "factory": "org.knime.webanalytics.internal.weblogreader3.WeblogReader3NodeFactory",
+        "bundle_name": "KNIME web analytics plug-in",
+        "bundle_symbolic_name": "org.knime.webanalytics",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Webanalytics",
+        "feature_symbolic_name": "org.knime.features.webanalytics.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "sources": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "knime://knime.workflow/data/sample.log"
+                    }
+                ]
+            },
+            {
+                "directoryContentsPattern": ".*"
+            },
+            {
+                "dateLocale": "en-US."
+            },
+            {
+                "dateFormat": "dd/MMM/yyyy:HH:mm:ss Z"
+            },
+            {
+                "logFormat": "%h %l %u %t \"%r\" %>s %b"
+            },
+            {
+                "splitRequestField": true
+            },
+            {
+                "startDate": "2015-12-08T01:00"
+            },
+            {
+                "startDateMode": false
+            },
+            {
+                "endDate": "2019-03-01T09:32:25"
+            },
+            {
+                "endDateMode": false
+            }
+        ],
+        "port_count": 2
+    },
+    (n70): {
+        "name": "Extract Date&Time Fields",
+        "factory": "org.knime.time.node.extract.datetime.ExtractDateTimeFieldsNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "col_select": "Request time"
+            },
+            {
+                "Year_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Year": false
+            },
+            {
+                "Quarter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Quarter": false
+            },
+            {
+                "Month (number)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Month (number)": false
+            },
+            {
+                "Month (name)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Month (name)": true
+            },
+            {
+                "Week_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Week": false
+            },
+            {
+                "Day of year_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of year": false
+            },
+            {
+                "Day of month_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of month": true
+            },
+            {
+                "Day of week (number)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of week (number)": true
+            },
+            {
+                "Day of week (name)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of week (name)": true
+            },
+            {
+                "Hour_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Hour": false
+            },
+            {
+                "Minute_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Minute": false
+            },
+            {
+                "Second_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Second": false
+            },
+            {
+                "Subsecond in_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Subsecond in": false
+            },
+            {
+                "subsecond_units_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "subsecond_units": "milliseconds"
+            },
+            {
+                "Time zone name_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Time zone name": false
+            },
+            {
+                "Time zone offset_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Time zone offset": false
+            },
+            {
+                "locale_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "locale": "en-US"
+            }
+        ],
+        "port_count": 1
+    },
+    (n71): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Month (name)"
+                            },
+                            {
+                                "1": "Day of month"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 12
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Remote logname"
+                            },
+                            {
+                                "2": "Remote user"
+                            },
+                            {
+                                "3": "Request time"
+                            },
+                            {
+                                "4": "Request method"
+                            },
+                            {
+                                "5": "Request URI"
+                            },
+                            {
+                                "6": "Request Protocol"
+                            },
+                            {
+                                "7": "Status"
+                            },
+                            {
+                                "8": "Size of response (incl. headers)"
+                            },
+                            {
+                                "9": "Country"
+                            },
+                            {
+                                "10": "Day of week (number)"
+                            },
+                            {
+                                "11": "Day of week (name)"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 4
+                            },
+                            {
+                                "0": "Remote host"
+                            },
+                            {
+                                "1": "Size of response (incl. headers)"
+                            },
+                            {
+                                "2": "Day of week (number)"
+                            },
+                            {
+                                "3": "Day of week (name)"
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 4
+                            },
+                            {
+                                "0": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "1": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.DoubleCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "2": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.IntCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "3": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 4
+                            },
+                            {
+                                "0": "Count"
+                            },
+                            {
+                                "1": "Sum_V2.5.2"
+                            },
+                            {
+                                "2": "First"
+                            },
+                            {
+                                "3": "First"
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 4
+                            },
+                            {
+                                "0": true
+                            },
+                            {
+                                "1": false
+                            },
+                            {
+                                "2": true
+                            },
+                            {
+                                "3": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    }
+}
+
+Workflow {
+    "connections": {
+        (n44:1)-->(n45:1),
+        (n44:1)-->(n50:1),
+        (n45:1)-->(n46:1),
+        (n46:1)-->(n47:1),
+        (n47:1)-->(n48:1),
+        (n48:1)-->(n49:1),
+        (n50:1)-->(n51:1),
+        (n51:1)-->(n70:1),
+        (n53:1)-->(n54:1),
+        (n54:1)-->(n55:1),
+        (n56:1)-->(n57:1),
+        (n57:1)-->(n71:1),
+        (n61:1)-->(n62:1),
+        (n62:1)-->(n63:1),
+        (n63:1)-->(n64:1),
+        (n64:1)-->(n65:1),
+        (n66:1)-->(n44:1),
+        (n70:1)-->(n53:1),
+        (n70:1)-->(n56:1),
+        (n71:1)-->(n61:1)
+    }
+}

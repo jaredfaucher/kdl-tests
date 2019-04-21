@@ -1,0 +1,713 @@
+Nodes {
+    (n1): {
+        "name": "Database Connector",
+        "factory": "org.knime.base.node.io.database.connection.JDBCConnectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "driver": "com.asterdata.ncluster.Driver"
+            },
+            {
+                "database": "jdbc:ncluster://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": ""
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n2): {
+        "name": "Database Reader",
+        "factory": "org.knime.base.node.io.database.DBReaderNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "DROP TABLE IF EXISTS knime_pract;%%00010%%00010CREATE TABLE knime_pract %%00010DISTRIBUTE BY HASH(age)%%00010COMPRESS LOW AS (%%00010%%00009SELECT  %%00010%%00009      (ROW_NUMBER() OVER (ORDER BY age)) AS rownum,%%00010%%00009      age,%%00010%%00009%%00009  gender,%%00010%%00009      chestpaintype,%%00010%%00009      CASE%%00010%%00009%%00009       WHEN restbps = 0 THEN null%%00010%%00009%%00009       ELSE restbps%%00010%%00009%%00009  END AS restbps,%%00010%%00009%%00009  CASE%%00010%%00009%%00009       WHEN chol = 0 THEN null%%00010%%00009%%00009       ELSE chol%%00010%%00009%%00009  END AS chol,%%00010%%00009%%00009  fastbloodsug, %%00010%%00009%%00009  restecg,%%00010%%00009%%00009  maxheartrate, %%00010%%00009%%00009  exindang,%%00010%%00009%%00009  oldpeak,%%00010%%00009%%00009  slope,%%00010%%00009%%00009  numvessels,%%00010%%00009%%00009  defect,%%00010%%00009%%00009  dxlevel,%%00010%%00009%%00009  CASE%%00010%%00009%%00009       WHEN dxlevel IN ('1', '2', '3', '4') THEN '1'%%00010%%00009%%00009       ELSE '0'%%00010%%00009%%00009  END AS dxpresent%%00010%%00009FROM heartdx_prelim%%00010);%%00010%%00010SELECT * FROM knime_pract"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "com.asterdata.ncluster.Driver"
+            },
+            {
+                "database": "<protocol>://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": ""
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n3): {
+        "name": "Missing Value Column Filter",
+        "factory": "org.knime.base.node.preproc.filter.missingvaluecolfilter.MissingValueColumnFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "column-filter": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "missing_value_percentage_Internals": [
+                    {
+                        "SettingsModelID": "SMID_double"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "missing_value_percentage": 90.0,
+                "data_type": "xdouble"
+            }
+        ],
+        "port_count": 1
+    },
+    (n4): {
+        "name": "Missing Value",
+        "factory": "org.knime.base.node.preproc.pmml.missingval.compute.MissingValueHandlerNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "columnSettings": []
+            },
+            {
+                "dataTypeSettings": []
+            }
+        ],
+        "port_count": 2
+    },
+    (n5): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    },
+    (n6): {
+        "name": "Partitioning",
+        "factory": "org.knime.base.node.preproc.partition.PartitionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [],
+        "port_count": 2
+    },
+    (n7): {
+        "name": "Logistic Regression Learner (deprecated)",
+        "factory": "org.knime.base.node.mine.regression.logistic.learner3.LogRegLearnerNodeFactory3",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "target": "",
+                "isnull": true
+            },
+            {
+                "column-filter": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "target_reference_category": [
+                    {
+                        "datacell": "",
+                        "isnull": true
+                    }
+                ]
+            },
+            {
+                "sort_target_categories": true
+            },
+            {
+                "sort_includes_categories": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n8): {
+        "name": "Regression Predictor (deprecated)",
+        "factory": "org.knime.base.node.mine.regression.predict2.RegressionPredictorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "has_custom_predicition_name": false
+            },
+            {
+                "custom_prediction_name": "",
+                "isnull": true
+            },
+            {
+                "include_probabilites": false
+            },
+            {
+                "propability_columns_suffix": ""
+            }
+        ],
+        "port_count": 1
+    },
+    (n9): {
+        "name": "Table Reader",
+        "factory": "org.knime.base.node.io.table.read.ReadTableNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "filename_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filename": "knime://knime.workflow/data\\nb_stats.table"
+            },
+            {
+                "limitRows_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "limitRows": false
+            },
+            {
+                "limitRowsCount_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "limitRowsCount": 100000
+            }
+        ],
+        "port_count": 1
+    },
+    (n10): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffixAutomatic"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "InnerJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 0
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 0
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 0
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 0
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": true
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n11): {
+        "name": "ROC Curve",
+        "factory": "org.knime.base.node.viz.roc.ROCNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "classColumn": "",
+                "isnull": true
+            },
+            {
+                "positiveClass": [
+                    {
+                        "datacell": "",
+                        "isnull": true
+                    }
+                ]
+            },
+            {
+                "curves": [
+                    {
+                        "array-size": 0
+                    }
+                ]
+            },
+            {
+                "maxPoints": 2000
+            }
+        ],
+        "port_count": 1
+    }
+}
+
+Workflow {
+    "connections": {
+        (n1:1)-->(n2:1),
+        (n2:1)-->(n3:1),
+        (n3:1)-->(n4:1),
+        (n4:1)-->(n5:1),
+        (n4:1)-->(n6:1),
+        (n6:1)-->(n7:1),
+        (n6:2)-->(n8:2),
+        (n7:1)-->(n8:1),
+        (n8:1)-->(n10:1),
+        (n9:1)-->(n10:2),
+        (n10:1)-->(n11:1)
+    }
+}

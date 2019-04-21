@@ -1,0 +1,3335 @@
+Nodes {
+    (n13): {
+        "name": "Backward Feature Elimination",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n283:1),
+            (META_IN:2)-->(n3:2),
+            (n2:2)-->(n3:1),
+            (n2:1)-->(META_OUT:1),
+            (n3:1)-->(META_OUT:2),
+            (n6:2)-->(n282:2),
+            (n6:1)-->(n281:1),
+            (n7)~~>(n2:1),
+            (n8:1)-->(n6:1),
+            (n281:3)-->(n282:1),
+            (n282:1)-->(n7:1),
+            (n283:1)-->(n8:1)
+        }
+    },
+    (n13.2): {
+        "name": "Feature Selection Loop End",
+        "factory": "org.knime.base.node.meta.feature.selection.FeatureSelectionLoopEndNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "scoreVariable": "Accuracy"
+            },
+            {
+                "isMinimize": false
+            }
+        ],
+        "port_count": 2
+    },
+    (n13.3): {
+        "name": "Feature Selection Filter",
+        "factory": "org.knime.base.node.meta.feature.selection.FeatureSelectionFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "nrOfFeatures": 2
+            },
+            {
+                "includeTargetColumn": true
+            },
+            {
+                "thresholdMode": false
+            },
+            {
+                "errorThreshold": 0.0,
+                "data_type": "xdouble"
+            }
+        ],
+        "port_count": 1
+    },
+    (n13.6): {
+        "name": "Partitioning",
+        "factory": "org.knime.base.node.preproc.partition.PartitionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "method": "Relative"
+            },
+            {
+                "samplingMethod": "Random"
+            },
+            {
+                "fraction": 0.67,
+                "data_type": "xdouble"
+            },
+            {
+                "count": 100
+            },
+            {
+                "random_seed": "",
+                "isnull": true
+            },
+            {
+                "class_column": "",
+                "isnull": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n13.7): {
+        "name": "Scorer",
+        "factory": "org.knime.base.node.mine.scorer.accuracy.AccuracyScorerNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "first": "Target"
+            },
+            {
+                "second": "Prediction (Target)"
+            },
+            {
+                "flowVarPrefix": "",
+                "isnull": true
+            },
+            {
+                "sortingReversed": false
+            },
+            {
+                "sortingStrategy": 0
+            },
+            {
+                "ignore.missing.values": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n13.8): {
+        "name": "Feature Selection Loop Start (1:1)",
+        "factory": "org.knime.base.node.meta.feature.selection.FeatureSelectionLoopStartNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "selectionStrategy": "1",
+                "data_type": "xbyte"
+            },
+            {
+                "constantColumnsFilterConfig": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 13
+                            },
+                            {
+                                "0": "WebActivity"
+                            },
+                            {
+                                "1": "Sentiment Analysis"
+                            },
+                            {
+                                "2": "SentimentRating"
+                            },
+                            {
+                                "3": "MaritalStatus"
+                            },
+                            {
+                                "4": "Gender"
+                            },
+                            {
+                                "5": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "6": "NumberOfContracts"
+                            },
+                            {
+                                "7": "Age"
+                            },
+                            {
+                                "8": "Available401K"
+                            },
+                            {
+                                "9": "CustomerValueSegment"
+                            },
+                            {
+                                "10": "ChurnScore"
+                            },
+                            {
+                                "11": "CallActivity"
+                            },
+                            {
+                                "12": "products"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "Target"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceInclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "nrFeatureThreshold": -1
+            }
+        ],
+        "port_count": 1
+    },
+    (n13.281): {
+        "name": "Random Forest Learner (deprecated)",
+        "factory": "org.knime.base.node.mine.treeensemble2.node.randomforest.learner.classification.RandomForestClassificationLearnerNodeFactory",
+        "bundle_name": "Decisions Tree Ensembles for KNIME",
+        "bundle_symbolic_name": "org.knime.base.treeensembles2",
+        "bundle_version": "3.7.0.v201811231518",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "targetColumn": "Target"
+            },
+            {
+                "seed": "1491223529310"
+            },
+            {
+                "maxLevels": -1
+            },
+            {
+                "minNodeSize": -1
+            },
+            {
+                "minChildSize": -1
+            },
+            {
+                "dataFraction": 1.0,
+                "data_type": "xdouble"
+            },
+            {
+                "isDataSelectionWithReplacement": true
+            },
+            {
+                "hardCodedRootColumn": "",
+                "isnull": true
+            },
+            {
+                "columnSamplingMode": "SquareRoot"
+            },
+            {
+                "columnFractionPerTree": 1.0,
+                "data_type": "xdouble"
+            },
+            {
+                "columnAbsolutePerTree": 10
+            },
+            {
+                "isUseDifferentAttributesAtEachNode": true
+            },
+            {
+                "nrModels": 100
+            },
+            {
+                "splitCriterion": "InformationGainRatio"
+            },
+            {
+                "missingValueHandling": "XGBoost"
+            },
+            {
+                "useAverageSplitPoints": true
+            },
+            {
+                "useBinaryNominalSplits": true
+            },
+            {
+                "fingerprintColumn": "",
+                "isnull": true
+            },
+            {
+                "columnFilterConfig": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 13
+                            },
+                            {
+                                "0": "WebActivity"
+                            },
+                            {
+                                "1": "Sentiment Analysis"
+                            },
+                            {
+                                "2": "SentimentRating"
+                            },
+                            {
+                                "3": "MaritalStatus"
+                            },
+                            {
+                                "4": "Gender"
+                            },
+                            {
+                                "5": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "6": "NumberOfContracts"
+                            },
+                            {
+                                "7": "Age"
+                            },
+                            {
+                                "8": "Available401K"
+                            },
+                            {
+                                "9": "CustomerValueSegment"
+                            },
+                            {
+                                "10": "ChurnScore"
+                            },
+                            {
+                                "11": "CallActivity"
+                            },
+                            {
+                                "12": "products"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "CustomerKey"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ignoreColumnsWithoutDomain": true
+            },
+            {
+                "nrHilitePatterns": -1
+            },
+            {
+                "saveTargetDistributionInNodes": false
+            },
+            {
+                "rowSamplingMode": "Random"
+            }
+        ],
+        "port_count": 3
+    },
+    (n13.282): {
+        "name": "Random Forest Predictor (deprecated)",
+        "factory": "org.knime.base.node.mine.treeensemble2.node.randomforest.predictor.classification.RandomForestClassificationPredictorNodeFactory",
+        "bundle_name": "Decisions Tree Ensembles for KNIME",
+        "bundle_symbolic_name": "org.knime.base.treeensembles2",
+        "bundle_version": "3.7.0.v201811231518",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "predictionColumnName": "Prediction (Target)"
+            },
+            {
+                "changePredictionColumnName": false
+            },
+            {
+                "appendPredictionConfidence": true
+            },
+            {
+                "appendClassConfidences": false
+            },
+            {
+                "appendModelCount": false
+            },
+            {
+                "suffixForClassProbabilities": ""
+            },
+            {
+                "useSoftVoting": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n13.283): {
+        "name": "Column Filter",
+        "factory": "org.knime.base.node.preproc.filter.column.DataColumnSpecFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "column-filter": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 14
+                            },
+                            {
+                                "0": "WebActivity"
+                            },
+                            {
+                                "1": "Sentiment Analysis"
+                            },
+                            {
+                                "2": "SentimentRating"
+                            },
+                            {
+                                "3": "MaritalStatus"
+                            },
+                            {
+                                "4": "Gender"
+                            },
+                            {
+                                "5": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "6": "NumberOfContracts"
+                            },
+                            {
+                                "7": "Age"
+                            },
+                            {
+                                "8": "Target"
+                            },
+                            {
+                                "9": "Available401K"
+                            },
+                            {
+                                "10": "CustomerValueSegment"
+                            },
+                            {
+                                "11": "ChurnScore"
+                            },
+                            {
+                                "12": "CallActivity"
+                            },
+                            {
+                                "13": "products"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "CustomerKey"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n129): {
+        "name": "Cell Replacer",
+        "factory": "org.knime.base.node.preproc.cellreplace.CellReplacerNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "targetCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "targetCol": "Sentiment Analysis"
+            },
+            {
+                "noMatchPolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "noMatchPolicy": "Missing"
+            },
+            {
+                "dictInputCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "dictInputCol": [
+                    {
+                        "useRowID": false
+                    },
+                    {
+                        "columnName": "Sentiment Analysis"
+                    }
+                ]
+            },
+            {
+                "dictOutputCol_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "dictOutputCol": [
+                    {
+                        "useRowID": false
+                    },
+                    {
+                        "columnName": "SentimentRating"
+                    }
+                ]
+            },
+            {
+                "appendColumn_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "appendColumn": true
+            },
+            {
+                "appendColumnName_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "appendColumnName": "SentimentRating"
+            }
+        ],
+        "port_count": 1
+    },
+    (n143): {
+        "name": "Concatenate",
+        "factory": "org.knime.base.node.preproc.append.row.AppendedRowsNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "fail_on_duplicates": false
+            },
+            {
+                "append_suffix": true
+            },
+            {
+                "intersection_of_columns": true
+            },
+            {
+                "suffix": "_dup"
+            },
+            {
+                "enable_hiliting": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n144): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffix"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "InnerJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "CustomerKey"
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "CustomerKey"
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 4
+                    },
+                    {
+                        "0": "CustomerKey"
+                    },
+                    {
+                        "1": "WebActivity"
+                    },
+                    {
+                        "2": "Sentiment Analysis"
+                    },
+                    {
+                        "3": "SentimentRating"
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 12
+                    },
+                    {
+                        "0": "CustomerKey"
+                    },
+                    {
+                        "1": "MaritalStatus"
+                    },
+                    {
+                        "2": "Gender"
+                    },
+                    {
+                        "3": "EstimatedYearlyIncome"
+                    },
+                    {
+                        "4": "NumberOfContracts"
+                    },
+                    {
+                        "5": "Age"
+                    },
+                    {
+                        "6": "Target"
+                    },
+                    {
+                        "7": "Available401K"
+                    },
+                    {
+                        "8": "CustomerValueSegment"
+                    },
+                    {
+                        "9": "ChurnScore"
+                    },
+                    {
+                        "10": "CallActivity"
+                    },
+                    {
+                        "11": "products"
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": false
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n145): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffix"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "InnerJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "CustomerKey"
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "CustomerKey"
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 4
+                    },
+                    {
+                        "0": "CustomerKey"
+                    },
+                    {
+                        "1": "Sentiment Analysis"
+                    },
+                    {
+                        "2": "SentimentRating"
+                    },
+                    {
+                        "3": "Products"
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 3
+                    },
+                    {
+                        "0": "CustomerKey"
+                    },
+                    {
+                        "1": "WebActivity"
+                    },
+                    {
+                        "2": "count"
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": true
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n156): {
+        "name": "Column Rename",
+        "factory": "org.knime.base.node.preproc.rename.RenameNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "all_columns": [
+                    {
+                        "0": [
+                            {
+                                "old_column_name": "CustomerKey"
+                            },
+                            {
+                                "new_column_name": "",
+                                "isnull": true
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    },
+                    {
+                        "1": [
+                            {
+                                "old_column_name": "First(WebActivity)"
+                            },
+                            {
+                                "new_column_name": "WebActivity"
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n231): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 15
+                            },
+                            {
+                                "0": "CustomerKey"
+                            },
+                            {
+                                "1": "WebActivity"
+                            },
+                            {
+                                "2": "Sentiment Analysis"
+                            },
+                            {
+                                "3": "SentimentRating"
+                            },
+                            {
+                                "4": "MaritalStatus"
+                            },
+                            {
+                                "5": "Gender"
+                            },
+                            {
+                                "6": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "7": "NumberOfContracts"
+                            },
+                            {
+                                "8": "Age"
+                            },
+                            {
+                                "9": "Target"
+                            },
+                            {
+                                "10": "Available401K"
+                            },
+                            {
+                                "11": "CustomerValueSegment"
+                            },
+                            {
+                                "12": "ChurnScore"
+                            },
+                            {
+                                "13": "CallActivity"
+                            },
+                            {
+                                "14": "products"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Keep original name(s)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 0
+            }
+        ],
+        "port_count": 1
+    },
+    (n240): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "lowerCase($products$)"
+            },
+            {
+                "replaced_column": "products"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n242): {
+        "name": "MongoDB Reader",
+        "factory": "org.knime.mongodb.read.MongoDBReaderNodeFactory",
+        "bundle_name": "KNIME MongoDB Nodes (Preview)",
+        "bundle_symbolic_name": "org.knime.mongodb",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME MongoDB Integration",
+        "feature_symbolic_name": "org.knime.features.mongodb.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "collection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "collection": "NewSystemCollection"
+            },
+            {
+                "host_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "host": "<host URL>"
+            },
+            {
+                "port_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "port": "27017"
+            },
+            {
+                "db_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "db": "NewSystem"
+            },
+            {
+                "username_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "username": "<username>"
+            },
+            {
+                "password_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "password": "<password>"
+            },
+            {
+                "authenticationDB_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "authenticationDB": "<authentication DB>"
+            },
+            {
+                "query_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "query": ""
+            },
+            {
+                "projection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "projection": ""
+            },
+            {
+                "sorting_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sorting": ""
+            },
+            {
+                "skip_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "skip": 0
+            },
+            {
+                "limit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "limit": -1
+            }
+        ],
+        "port_count": 1
+    },
+    (n245): {
+        "name": "MySQL Connector",
+        "factory": "org.knime.database.connectors.mysql.MySQLConnectorNodeFactory",
+        "bundle_name": "KNIME connectors to common databases",
+        "bundle_symbolic_name": "org.knime.database.connectors",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Connectors for Common Databases",
+        "feature_symbolic_name": "org.knime.features.dbdrivers.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "driver": "com.mysql.jdbc.Driver"
+            },
+            {
+                "database": "jdbc:mysql://<host URL>:3306/<database name>?useOldAliasMetadataBehavior=true"
+            },
+            {
+                "credential_name": "MySQL_user_2"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": true
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": true
+            },
+            {
+                "databaseIdentifier": "mysql"
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            },
+            {
+                "default-connection": [
+                    {
+                        "hostname": "<host URL>"
+                    },
+                    {
+                        "port": 3306
+                    },
+                    {
+                        "databaseName": "<database name>"
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n246): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM OldWebData"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "com.mysql.jdbc.Driver"
+            },
+            {
+                "database": "jdbc:mysql://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "",
+                "isnull": true
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n247): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n249): {
+        "name": "JSON to Table",
+        "factory": "org.knime.json.node.totable.JSONToTableNodeFactory",
+        "bundle_name": "JSON related functionality for KNIME",
+        "bundle_symbolic_name": "org.knime.json",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME JSON-Processing",
+        "feature_symbolic_name": "org.knime.features.json.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "input.column": "json"
+            },
+            {
+                "column.name.strategy": "UniquifiedLeafNames"
+            },
+            {
+                "column.segment.separator": "."
+            },
+            {
+                "expansion": "OnlyLeaves"
+            },
+            {
+                "up.to.n.levels": 1
+            },
+            {
+                "array.handling": "GenerateColumns"
+            },
+            {
+                "removeSourceColumn": true
+            },
+            {
+                "omit.nested.objects": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n251): {
+        "name": "Partitioning",
+        "factory": "org.knime.base.node.preproc.partition.PartitionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "method": "Relative"
+            },
+            {
+                "samplingMethod": "Random"
+            },
+            {
+                "fraction": 0.7,
+                "data_type": "xdouble"
+            },
+            {
+                "count": 100
+            },
+            {
+                "random_seed": "",
+                "isnull": true
+            },
+            {
+                "class_column": "Products"
+            }
+        ],
+        "port_count": 2
+    },
+    (n253): {
+        "name": "Scorer",
+        "factory": "org.knime.base.node.mine.scorer.accuracy.AccuracyScorerNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "first": "Target"
+            },
+            {
+                "second": "Prediction (Target)"
+            },
+            {
+                "flowVarPrefix": "",
+                "isnull": true
+            },
+            {
+                "sortingReversed": false
+            },
+            {
+                "sortingStrategy": 0
+            },
+            {
+                "ignore.missing.values": true
+            }
+        ],
+        "port_count": 2
+    },
+    (n256): {
+        "name": "Microsoft SQL Server Connector",
+        "factory": "org.knime.database.connectors.sqlserver.SQLServerConnectorNodeFactory",
+        "bundle_name": "KNIME connectors to common databases",
+        "bundle_symbolic_name": "org.knime.database.connectors",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Connectors for Common Databases",
+        "feature_symbolic_name": "org.knime.features.dbdrivers.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "driver": "net.sourceforge.jtds.jdbc.Driver"
+            },
+            {
+                "database": "jdbc:jtds:sqlserver://<host URL>:1433/<database name>"
+            },
+            {
+                "credential_name": "MS_SQL_user"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": true
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": true
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            },
+            {
+                "default-connection": [
+                    {
+                        "hostname": "<host URL>"
+                    },
+                    {
+                        "port": 1433
+                    },
+                    {
+                        "databaseName": "<database name>"
+                    }
+                ]
+            },
+            {
+                "parameter": [
+                    {
+                        "parameter": ""
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n257): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM SentimentEvaluation"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "net.sourceforge.jtds.jdbc.Driver"
+            },
+            {
+                "database": "jdbc:jtds:sybase://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "",
+                "isnull": true
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n259): {
+        "name": "Database Connector",
+        "factory": "org.knime.base.node.io.database.connection.JDBCConnectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "driver": "oracle.jdbc.driver.OracleDriver"
+            },
+            {
+                "database": "jdbc:oracle:thin:@<host URL>:1521/<database name>"
+            },
+            {
+                "credential_name": "Oracle_user"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n260): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": false
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": true
+                    },
+                    {
+                        "passwordEncrypted": "01FD6682EC25F10A75D469E8721CE3B2EC",
+                        "data_type": "xpassword"
+                    }
+                ]
+            },
+            {
+                "label": "Input Credentials for MS SQL Server"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "MS_SQL_user"
+            }
+        ],
+        "port_count": 1
+    },
+    (n261): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": false
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": true
+                    },
+                    {
+                        "passwordEncrypted": "01FD6682EC25F10A75D469E8721CE3B2EC",
+                        "data_type": "xpassword"
+                    }
+                ]
+            },
+            {
+                "label": "Input Credentials for MySQL DB:"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "MySQL_user_2"
+            }
+        ],
+        "port_count": 1
+    },
+    (n263): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffix"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "LeftOuterJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "CustomerKey"
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "customerkey"
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 13
+                    },
+                    {
+                        "0": "CustomerKey"
+                    },
+                    {
+                        "1": "MaritalStatus"
+                    },
+                    {
+                        "2": "Gender"
+                    },
+                    {
+                        "3": "EstimatedYearlyIncome"
+                    },
+                    {
+                        "4": "SentimentRating"
+                    },
+                    {
+                        "5": "WebActivity"
+                    },
+                    {
+                        "6": "NumberOfContracts"
+                    },
+                    {
+                        "7": "Age"
+                    },
+                    {
+                        "8": "Target"
+                    },
+                    {
+                        "9": "Available401K"
+                    },
+                    {
+                        "10": "CustomerValueSegment"
+                    },
+                    {
+                        "11": "ChurnScore"
+                    },
+                    {
+                        "12": "CallActivity"
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 2
+                    },
+                    {
+                        "0": "customerkey"
+                    },
+                    {
+                        "1": "products"
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": true
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n264): {
+        "name": "Database Connector",
+        "factory": "org.knime.base.node.io.database.connection.JDBCConnectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "driver": "org.mariadb.jdbc.Driver"
+            },
+            {
+                "database": "jdbc:<host URL>:3306/<database name>"
+            },
+            {
+                "credential_name": "MariaDB_user"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n265): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n266): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM sentimentmapping"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "org.mariadb.jdbc.Driver"
+            },
+            {
+                "database": "<protocol>://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "",
+                "isnull": true
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n267): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n268): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM Demographics"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "oracle.jdbc.driver.OracleDriver"
+            },
+            {
+                "database": "jdbc:oracle:thin:@<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "",
+                "isnull": true
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n269): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n270): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": false
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": true
+                    },
+                    {
+                        "passwordEncrypted": "01FD6682EC25F10A75D469E8721CE3B2EC",
+                        "data_type": "xpassword"
+                    }
+                ]
+            },
+            {
+                "label": "Input Credentials for Oracle DB:"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "Oracle_user"
+            }
+        ],
+        "port_count": 1
+    },
+    (n274): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": false
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": true
+                    },
+                    {
+                        "passwordEncrypted": "01FD6682EC25F10A75D469E8721CE3B2EC",
+                        "data_type": "xpassword"
+                    }
+                ]
+            },
+            {
+                "label": "Input Credentials for MariaDB:"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "MariaDB_user"
+            }
+        ],
+        "port_count": 1
+    },
+    (n275): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": false
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": true
+                    },
+                    {
+                        "passwordEncrypted": "01FD6682EC25F10A75D469E8721CE3B2EC",
+                        "data_type": "xpassword"
+                    }
+                ]
+            },
+            {
+                "label": "Input Credentials for PostgreSQL DB:"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "PostgreSQL_user"
+            }
+        ],
+        "port_count": 1
+    },
+    (n276): {
+        "name": "PostgreSQL Connector",
+        "factory": "org.knime.database.connectors.postgresql.PostgreSQLConnectorNodeFactory",
+        "bundle_name": "KNIME connectors to common databases",
+        "bundle_symbolic_name": "org.knime.database.connectors",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Connectors for Common Databases",
+        "feature_symbolic_name": "org.knime.features.dbdrivers.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "driver": "org.postgresql.Driver"
+            },
+            {
+                "database": "jdbc:postgresql://<host URL>:5432/<database name>"
+            },
+            {
+                "credential_name": "PostgreSQL_user"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": true
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": true
+            },
+            {
+                "databaseIdentifier": "postgresql"
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            },
+            {
+                "default-connection": [
+                    {
+                        "hostname": "<host URL>"
+                    },
+                    {
+                        "port": 5432
+                    },
+                    {
+                        "databaseName": "<database name>"
+                    }
+                ]
+            },
+            {
+                "postgresql-connection": [
+                    {
+                        "useSsl": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n277): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM customerproducts"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "org.postgresql.Driver"
+            },
+            {
+                "database": "jdbc:postgresql://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "",
+                "isnull": true
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n278): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n279): {
+        "name": "Double To Int",
+        "factory": "org.knime.base.node.preproc.double2int2.DoubleToIntNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "include_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "include": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "CustomerKey"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 10
+                            },
+                            {
+                                "0": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "1": "SentimentRating"
+                            },
+                            {
+                                "2": "WebActivity"
+                            },
+                            {
+                                "3": "NumberOfContracts"
+                            },
+                            {
+                                "4": "Age"
+                            },
+                            {
+                                "5": "Target"
+                            },
+                            {
+                                "6": "Available401K"
+                            },
+                            {
+                                "7": "CustomerValueSegment"
+                            },
+                            {
+                                "8": "ChurnScore"
+                            },
+                            {
+                                "9": "CallActivity"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "typeofround_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "typeofround": "round"
+            },
+            {
+                "long_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "long": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n280): {
+        "name": "Number To String",
+        "factory": "org.knime.base.node.preproc.colconvert.numbertostring.NumberToStringNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "include_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "include": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "Target"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 10
+                            },
+                            {
+                                "0": "CustomerKey"
+                            },
+                            {
+                                "1": "WebActivity"
+                            },
+                            {
+                                "2": "SentimentRating"
+                            },
+                            {
+                                "3": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "4": "NumberOfContracts"
+                            },
+                            {
+                                "5": "Age"
+                            },
+                            {
+                                "6": "Available401K"
+                            },
+                            {
+                                "7": "CustomerValueSegment"
+                            },
+                            {
+                                "8": "ChurnScore"
+                            },
+                            {
+                                "9": "CallActivity"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n281): {
+        "name": "Random Forest Learner (deprecated)",
+        "factory": "org.knime.base.node.mine.treeensemble2.node.randomforest.learner.classification.RandomForestClassificationLearnerNodeFactory",
+        "bundle_name": "Decisions Tree Ensembles for KNIME",
+        "bundle_symbolic_name": "org.knime.base.treeensembles2",
+        "bundle_version": "3.7.0.v201811231518",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "targetColumn": "Target"
+            },
+            {
+                "seed": "1491223529310"
+            },
+            {
+                "maxLevels": -1
+            },
+            {
+                "minNodeSize": -1
+            },
+            {
+                "minChildSize": -1
+            },
+            {
+                "dataFraction": 1.0,
+                "data_type": "xdouble"
+            },
+            {
+                "isDataSelectionWithReplacement": true
+            },
+            {
+                "hardCodedRootColumn": "",
+                "isnull": true
+            },
+            {
+                "columnSamplingMode": "SquareRoot"
+            },
+            {
+                "columnFractionPerTree": 1.0,
+                "data_type": "xdouble"
+            },
+            {
+                "columnAbsolutePerTree": 10
+            },
+            {
+                "isUseDifferentAttributesAtEachNode": true
+            },
+            {
+                "nrModels": 100
+            },
+            {
+                "splitCriterion": "InformationGainRatio"
+            },
+            {
+                "missingValueHandling": "XGBoost"
+            },
+            {
+                "useAverageSplitPoints": true
+            },
+            {
+                "useBinaryNominalSplits": true
+            },
+            {
+                "fingerprintColumn": "",
+                "isnull": true
+            },
+            {
+                "columnFilterConfig": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 13
+                            },
+                            {
+                                "0": "WebActivity"
+                            },
+                            {
+                                "1": "Sentiment Analysis"
+                            },
+                            {
+                                "2": "SentimentRating"
+                            },
+                            {
+                                "3": "MaritalStatus"
+                            },
+                            {
+                                "4": "Gender"
+                            },
+                            {
+                                "5": "EstimatedYearlyIncome"
+                            },
+                            {
+                                "6": "NumberOfContracts"
+                            },
+                            {
+                                "7": "Age"
+                            },
+                            {
+                                "8": "Available401K"
+                            },
+                            {
+                                "9": "CustomerValueSegment"
+                            },
+                            {
+                                "10": "ChurnScore"
+                            },
+                            {
+                                "11": "CallActivity"
+                            },
+                            {
+                                "12": "products"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "CustomerKey"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "ignoreColumnsWithoutDomain": true
+            },
+            {
+                "nrHilitePatterns": -1
+            },
+            {
+                "saveTargetDistributionInNodes": false
+            },
+            {
+                "rowSamplingMode": "Random"
+            }
+        ],
+        "port_count": 3
+    },
+    (n282): {
+        "name": "Sorter",
+        "factory": "org.knime.base.node.preproc.sorter.SorterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "incllist": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "influence index"
+                    }
+                ]
+            },
+            {
+                "sortOrder": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": false
+                    }
+                ]
+            },
+            {
+                "sortinmemory": false
+            },
+            {
+                "missingToEnd": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n283): {
+        "name": "Math Formula",
+        "factory": "org.knime.ext.jep.JEPNodeFactory",
+        "bundle_name": "KNIME Math Expression Node",
+        "bundle_symbolic_name": "org.knime.ext.jep",
+        "bundle_version": "3.7.0.v201811261407",
+        "feature_name": "KNIME Math Expression (JEP)",
+        "feature_symbolic_name": "org.knime.features.ext.jep.feature.group",
+        "feature_version": "3.7.0.v201811261407",
+        "model": [
+            {
+                "expression": "($#splits (level 0)$ +$#splits (level 1)$ +$#splits (level 2)$)/($#candidates (level 0)$+$#candidates (level 1)$+$#candidates (level 2)$)"
+            },
+            {
+                "replaced_column": "influence index"
+            },
+            {
+                "append_column": false
+            },
+            {
+                "convert_to_int": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n284): {
+        "name": "Random Forest Predictor (deprecated)",
+        "factory": "org.knime.base.node.mine.treeensemble2.node.randomforest.predictor.classification.RandomForestClassificationPredictorNodeFactory",
+        "bundle_name": "Decisions Tree Ensembles for KNIME",
+        "bundle_symbolic_name": "org.knime.base.treeensembles2",
+        "bundle_version": "3.7.0.v201811231518",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "predictionColumnName": "Prediction (Target)"
+            },
+            {
+                "changePredictionColumnName": false
+            },
+            {
+                "appendPredictionConfidence": true
+            },
+            {
+                "appendClassConfidences": false
+            },
+            {
+                "appendModelCount": false
+            },
+            {
+                "suffixForClassProbabilities": ""
+            },
+            {
+                "useSoftVoting": false
+            }
+        ],
+        "port_count": 1
+    }
+}
+
+Workflow {
+    "connections": {
+        (n129:1)-->(n145:2),
+        (n143:1)-->(n145:1),
+        (n144:1)-->(n231:1),
+        (n145:1)-->(n144:1),
+        (n156:1)-->(n143:1),
+        (n231:1)-->(n280:1),
+        (n240:1)-->(n263:2),
+        (n242:1)-->(n249:1),
+        (n245:1)-->(n246:1),
+        (n246:1)-->(n247:1),
+        (n247:1)-->(n156:1),
+        (n249:1)-->(n143:2),
+        (n251:1)-->(n281:1),
+        (n251:2)-->(n284:2),
+        (n251:1)-->(n13:1),
+        (n251:1)-->(n13:2),
+        (n256:1)-->(n257:1),
+        (n257:1)-->(n265:1),
+        (n259:1)-->(n268:1),
+        (n260:1)~~>(n256),
+        (n261:1)~~>(n245),
+        (n263:1)-->(n144:2),
+        (n264:1)-->(n266:1),
+        (n265:1)-->(n129:1),
+        (n266:1)-->(n267:1),
+        (n267:1)-->(n129:2),
+        (n268:1)-->(n269:1),
+        (n269:1)-->(n279:1),
+        (n270:1)~~>(n259),
+        (n274:1)~~>(n264),
+        (n275:1)~~>(n276),
+        (n276:1)-->(n277:1),
+        (n277:1)-->(n278:1),
+        (n278:1)-->(n240:1),
+        (n279:1)-->(n263:1),
+        (n280:1)-->(n251:1),
+        (n281:2)-->(n283:1),
+        (n281:3)-->(n284:1),
+        (n283:1)-->(n282:1),
+        (n284:1)-->(n253:1)
+    }
+}

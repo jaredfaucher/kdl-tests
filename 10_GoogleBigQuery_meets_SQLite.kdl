@@ -1,0 +1,5700 @@
+Nodes {
+    (n8): {
+        "name": "Database Connector",
+        "factory": "org.knime.base.node.io.database.connection.JDBCConnectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "driver": "com.simba.googlebigquery.jdbc42.Driver"
+            },
+            {
+                "database": "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443/Baseball_data.games_wide_copy;ProjectId=northern-math-174409;OAuthType=1"
+            },
+            {
+                "credential_name": "BigQueryCredentials"
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n15): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT startTime, gameStatus, attendance, dayNight, homeTeamName, awayTeamName, venueCapacity, venueCity, venueState, awayFinalHits, awayFinalRuns, homeFinalHits, homeFinalRuns%%00010FROM Baseball_data.games_wide_copy%%00010GROUP BY startTime, gameStatus, attendance, dayNight, homeTeamName, awayTeamName, venueCapacity, venueCity, venueState, awayFinalRuns, awayFinalHits, homeFinalHits, homeFinalRuns"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "com.simba.googlebigquery.jdbc42.Driver"
+            },
+            {
+                "database": "<protocol>://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.4.1"
+            }
+        ],
+        "port_count": 1
+    },
+    (n16): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n30): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffixAutomatic"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "InnerJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 2
+                    },
+                    {
+                        "0": "venueCity"
+                    },
+                    {
+                        "1": "startTime"
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 2
+                    },
+                    {
+                        "0": "venueCity"
+                    },
+                    {
+                        "1": "startTime"
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 13
+                    },
+                    {
+                        "0": "startTime"
+                    },
+                    {
+                        "1": "gameStatus"
+                    },
+                    {
+                        "2": "attendance"
+                    },
+                    {
+                        "3": "dayNight"
+                    },
+                    {
+                        "4": "homeTeamName"
+                    },
+                    {
+                        "5": "awayTeamName"
+                    },
+                    {
+                        "6": "venueCapacity"
+                    },
+                    {
+                        "7": "venueCity"
+                    },
+                    {
+                        "8": "venueState"
+                    },
+                    {
+                        "9": "awayFinalHits"
+                    },
+                    {
+                        "10": "awayFinalRuns"
+                    },
+                    {
+                        "11": "homeFinalHits"
+                    },
+                    {
+                        "12": "homeFinalRuns"
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 27
+                    },
+                    {
+                        "0": "startTime"
+                    },
+                    {
+                        "1": "venueCity"
+                    },
+                    {
+                        "2": "Year"
+                    },
+                    {
+                        "3": "Month (number)"
+                    },
+                    {
+                        "4": "Day of month"
+                    },
+                    {
+                        "5": "temp_high"
+                    },
+                    {
+                        "6": "temp_avg"
+                    },
+                    {
+                        "7": "temp_low"
+                    },
+                    {
+                        "8": "dewpoint_high"
+                    },
+                    {
+                        "9": "dewpoint_avg"
+                    },
+                    {
+                        "10": "dewpoint_low"
+                    },
+                    {
+                        "11": "humiditypercent_high"
+                    },
+                    {
+                        "12": "humiditypercent_avg"
+                    },
+                    {
+                        "13": "humiditypercent_low"
+                    },
+                    {
+                        "14": "pressure_high"
+                    },
+                    {
+                        "15": "pressure_avg"
+                    },
+                    {
+                        "16": "pressure_low"
+                    },
+                    {
+                        "17": "visibility_high"
+                    },
+                    {
+                        "18": "visibility_avg"
+                    },
+                    {
+                        "19": "visibility_low"
+                    },
+                    {
+                        "20": "windspeed_high"
+                    },
+                    {
+                        "21": "windspeed_avg"
+                    },
+                    {
+                        "22": "precipice"
+                    },
+                    {
+                        "23": "Rain"
+                    },
+                    {
+                        "24": "Fog"
+                    },
+                    {
+                        "25": "Snow"
+                    },
+                    {
+                        "26": "Thunderstorm"
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": true
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n41): {
+        "name": "String to Date&Time",
+        "factory": "org.knime.time.node.convert.stringtodatetime.StringToDateTimeNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "col_select": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "startTime"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "venueCity"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceInclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "replace_or_append_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replace_or_append": "Replace selected columns"
+            },
+            {
+                "suffix_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "suffix": "(Date&Time)"
+            },
+            {
+                "date_format_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "date_format": "yyyy-MM-dd'T'HH:mm[:ss[.SSS]]"
+            },
+            {
+                "cancel_on_fail_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "cancel_on_fail": true
+            },
+            {
+                "typeEnum": "LOCAL_DATE_TIME"
+            },
+            {
+                "locale_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "locale": "en-US"
+            }
+        ],
+        "port_count": 1
+    },
+    (n85): {
+        "name": "Credentials Input",
+        "factory": "org.knime.js.base.node.quickform.input.credentials.CredentialsInputQuickFormNodeFactory",
+        "bundle_name": "KNIME Quick Form Nodes",
+        "bundle_symbolic_name": "org.knime.js.quickforms",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME Quick Forms",
+        "feature_symbolic_name": "org.knime.features.js.quickforms.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "error_message": ""
+            },
+            {
+                "prompt_username": true
+            },
+            {
+                "use_server_login": false
+            },
+            {
+                "no_display": false
+            },
+            {
+                "defaultValue": [
+                    {
+                        "username": "<username>"
+                    },
+                    {
+                        "isSavePassword": false
+                    }
+                ]
+            },
+            {
+                "label": "Enter Credentials for Big Query Database:"
+            },
+            {
+                "description": "Enter Description"
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "hideInDialog": false
+            },
+            {
+                "required": true
+            },
+            {
+                "parameterName": "credentials-input"
+            },
+            {
+                "customCSS": ""
+            },
+            {
+                "flowvariablename": "BigQueryCredentials"
+            }
+        ],
+        "port_count": 1
+    },
+    (n86): {
+        "name": "SQLite Connector",
+        "factory": "org.knime.database.connectors.sqlite.SQLiteConnectorNodeFactory",
+        "bundle_name": "KNIME connectors to common databases",
+        "bundle_symbolic_name": "org.knime.database.connectors",
+        "bundle_version": "3.7.0.v201808081048",
+        "feature_name": "KNIME Connectors for Common Databases",
+        "feature_symbolic_name": "org.knime.features.dbdrivers.feature.group",
+        "feature_version": "3.7.0.v201808081048",
+        "model": [
+            {
+                "driver": "org.sqlite.JDBC"
+            },
+            {
+                "database": "jdbc:sqlite:C:\\Users\\rosy\\knime_3.4.0\\workspace\\blog_posts\\EPAM\\09_GoogleBigQuery_meets_SQLite\\data\\WeatherDatav1"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "none"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": true
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": true
+            },
+            {
+                "databaseIdentifier": "sqlite"
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            },
+            {
+                "sqlite-connection": [
+                    {
+                        "path": "knime://knime.workflow/data/WeatherDatav1"
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n90): {
+        "name": "Database Table Selector",
+        "factory": "org.knime.base.node.io.database.connection.DBTableSelectorNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "statement": "SELECT * FROM Weather"
+            },
+            {
+                "execute_without_configure": true
+            },
+            {
+                "driver": "org.sqlite.JDBC"
+            },
+            {
+                "database": "jdbc:sqlite://<host>:<port>/<database_name>"
+            },
+            {
+                "user": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "userName": "[Workflows edited with 3.4.1, will not work in older versions]"
+            },
+            {
+                "passwordEncrypted": "0168F07456E2496FA29F15BC7D3BC09E95",
+                "data_type": "xpassword"
+            },
+            {
+                "password": "",
+                "isnull": true
+            },
+            {
+                "timezone": "current"
+            },
+            {
+                "validateConnection": false
+            },
+            {
+                "retrieveMetadataInConfigure": false
+            },
+            {
+                "allowSpacesInColumnNames": true
+            },
+            {
+                "rowIdsStartWithZero": false
+            },
+            {
+                "databaseIdentifier": "",
+                "isnull": true
+            },
+            {
+                "kerberos": false
+            },
+            {
+                "knimeVersion": "3.3.0"
+            }
+        ],
+        "port_count": 1
+    },
+    (n91): {
+        "name": "Database Connection Table Reader",
+        "factory": "org.knime.base.node.io.database.DBConnectionNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "useDbRowId_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "useDbRowId": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n94): {
+        "name": "Pre-processing",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n89:1),
+            (n67:1)-->(META_OUT:1),
+            (n71:1)-->(n67:1),
+            (n89:1)-->(n100:1),
+            (n96:1)-->(n71:1),
+            (n98:1)-->(n107:1),
+            (n99:1)-->(n106:1),
+            (n100:1)-->(n104:1),
+            (n102:1)-->(n96:1),
+            (n104:1)-->(n98:1),
+            (n106:1)-->(n100:2),
+            (n107:1)-->(n102:1)
+        }
+    },
+    (n94.67): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 2
+                    },
+                    {
+                        "0": "$Day of week (name)$ = \"Saturday\" OR $Day of week (name)$ = \"Sunday\" => \"Weekend\""
+                    },
+                    {
+                        "1": "TRUE => \"Weekday\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "WeekOrWeekend"
+            },
+            {
+                "replace-column-name": "DayTime"
+            },
+            {
+                "append-column": true
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.71): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 3
+                    },
+                    {
+                        "0": "$Hour$< 17 => \"Afternoon\""
+                    },
+                    {
+                        "1": "$Hour$ > 17 OR $Hour$ < 20 => \"Evening\""
+                    },
+                    {
+                        "2": "$Hour$ >= 20 => \"Night\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "DayTime"
+            },
+            {
+                "replace-column-name": "Hour"
+            },
+            {
+                "append-column": true
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.89): {
+        "name": "Math Formula",
+        "factory": "org.knime.ext.jep.JEPNodeFactory",
+        "bundle_name": "KNIME Math Expression Node",
+        "bundle_symbolic_name": "org.knime.ext.jep",
+        "bundle_version": "3.7.0.v201811261407",
+        "feature_name": "KNIME Math Expression (JEP)",
+        "feature_symbolic_name": "org.knime.features.ext.jep.feature.group",
+        "feature_version": "3.7.0.v201811261407",
+        "model": [
+            {
+                "expression": "$temp_high$-$temp_low$"
+            },
+            {
+                "replaced_column": "Temperature DIFF"
+            },
+            {
+                "append_column": false
+            },
+            {
+                "convert_to_int": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.96): {
+        "name": "Extract Date&Time Fields",
+        "factory": "org.knime.time.node.extract.datetime.ExtractDateTimeFieldsNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "col_select": "startTime"
+            },
+            {
+                "Year_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Year": false
+            },
+            {
+                "Quarter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Quarter": false
+            },
+            {
+                "Month (number)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Month (number)": false
+            },
+            {
+                "Month (name)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Month (name)": false
+            },
+            {
+                "Week_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Week": false
+            },
+            {
+                "Day of year_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of year": false
+            },
+            {
+                "Day of month_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of month": false
+            },
+            {
+                "Day of week (number)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of week (number)": false
+            },
+            {
+                "Day of week (name)_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Day of week (name)": true
+            },
+            {
+                "Hour_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Hour": true
+            },
+            {
+                "Minute_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Minute": false
+            },
+            {
+                "Second_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Second": false
+            },
+            {
+                "Subsecond in_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Subsecond in": false
+            },
+            {
+                "subsecond_units_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "subsecond_units": "milliseconds"
+            },
+            {
+                "Time zone name_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Time zone name": false
+            },
+            {
+                "Time zone offset_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "Time zone offset": false
+            },
+            {
+                "locale_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "locale": "en-US"
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.98): {
+        "name": "Modify Time Zone",
+        "factory": "org.knime.time.node.manipulate.modifytimezone.ModifyTimeZoneNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "startTime"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.localdatetime.LocalDateTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.duration.DurationValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "replace_or_append_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replace_or_append": "Replace selected columns"
+            },
+            {
+                "suffix_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "suffix": "_mod"
+            },
+            {
+                "time_zone_select_Internals": [
+                    {
+                        "SettingsModelID": "settingsmodel.date&time"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "time_zone_select": "UTC"
+            },
+            {
+                "modify_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "modify_select": "Set time zone"
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.99): {
+        "name": "File Reader",
+        "factory": "org.knime.base.node.io.filereader.FileReaderNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "DataURL": "knime://knime.workflow/data/TimeZones.csv"
+            },
+            {
+                "Delimiters": [
+                    {
+                        "Delim0": [
+                            {
+                                "pattern": "%%00010"
+                            },
+                            {
+                                "combineMultiple": true
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": true
+                            }
+                        ]
+                    },
+                    {
+                        "Delim1": [
+                            {
+                                "pattern": "%%00013"
+                            },
+                            {
+                                "combineMultiple": true
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": true
+                            }
+                        ]
+                    },
+                    {
+                        "Delim2": [
+                            {
+                                "pattern": ","
+                            },
+                            {
+                                "combineMultiple": false
+                            },
+                            {
+                                "includeInToken": false
+                            },
+                            {
+                                "returnAsToken": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Quotes": [
+                    {
+                        "Quote0": [
+                            {
+                                "left": "\""
+                            },
+                            {
+                                "right": "\""
+                            },
+                            {
+                                "EscChar": "\\",
+                                "data_type": "xchar"
+                            },
+                            {
+                                "DontRem": false
+                            }
+                        ]
+                    },
+                    {
+                        "Quote1": [
+                            {
+                                "left": "'"
+                            },
+                            {
+                                "right": "'"
+                            },
+                            {
+                                "EscChar": "\\",
+                                "data_type": "xchar"
+                            },
+                            {
+                                "DontRem": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "Comments": []
+            },
+            {
+                "WhiteSpaces": [
+                    {
+                        "WhiteSpace0": " "
+                    },
+                    {
+                        "WhiteSpace1": "%%00009"
+                    }
+                ]
+            },
+            {
+                "CombineMultDelims": false
+            },
+            {
+                "SkipFirstLines": 0,
+                "data_type": "xlong"
+            },
+            {
+                "NewLineInQuotes": false
+            },
+            {
+                "hasColHdr": true
+            },
+            {
+                "hasRowHdr": false
+            },
+            {
+                "ignoreEmptyLines": true
+            },
+            {
+                "rowPrefix": "Row"
+            },
+            {
+                "RowDelims": [
+                    {
+                        "RDelim0": "%%00010"
+                    },
+                    {
+                        "SkipEmptyLine0": true
+                    },
+                    {
+                        "RDelim1": "%%00013"
+                    },
+                    {
+                        "SkipEmptyLine1": true
+                    }
+                ]
+            },
+            {
+                "MissingPatterns": []
+            },
+            {
+                "FormatParameter": []
+            },
+            {
+                "globalMissPattern": "",
+                "isnull": true
+            },
+            {
+                "DecimalSeparator": ".",
+                "data_type": "xchar"
+            },
+            {
+                "ThrousandsSeparator": "%%00000",
+                "data_type": "xchar"
+            },
+            {
+                "ignEmtpyTokensAtEOR": false
+            },
+            {
+                "acceptShortLines": false
+            },
+            {
+                "uniquifyRowID": false
+            },
+            {
+                "MaxNumOfRows": -1,
+                "data_type": "xlong"
+            },
+            {
+                "ColNumDetermLine": 2
+            },
+            {
+                "CharsetName": "",
+                "isnull": true
+            },
+            {
+                "ConnectTimeoutInSeconds": 1
+            },
+            {
+                "delimsAtEOLuserVal": false
+            },
+            {
+                "numOfColumns": 2
+            },
+            {
+                "ColumnProperties": [
+                    {
+                        "0": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "venueCity"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "1": [
+                            {
+                                "UserSetValues": false
+                            },
+                            {
+                                "MissValuePattern": "?"
+                            },
+                            {
+                                "FormatParameter": "",
+                                "isnull": true
+                            },
+                            {
+                                "ReadPossValsFromFile": false
+                            },
+                            {
+                                "SkipThisColumn": false
+                            },
+                            {
+                                "ColumnName": "time zones"
+                            },
+                            {
+                                "ColumnClass": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.StringCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.100): {
+        "name": "Joiner",
+        "factory": "org.knime.base.node.preproc.joiner.Joiner2NodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "duplicateHandling": "AppendSuffixAutomatic"
+            },
+            {
+                "compositionMode": "MatchAll"
+            },
+            {
+                "joinMode": "InnerJoin"
+            },
+            {
+                "leftTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "venueCity"
+                    }
+                ]
+            },
+            {
+                "rightTableJoinPredicate": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "venueCity"
+                    }
+                ]
+            },
+            {
+                "suffix": "(*)"
+            },
+            {
+                "leftIncludeCols": [
+                    {
+                        "array-size": 29
+                    },
+                    {
+                        "0": "startTime"
+                    },
+                    {
+                        "1": "attendance"
+                    },
+                    {
+                        "2": "venueCity"
+                    },
+                    {
+                        "3": "Year"
+                    },
+                    {
+                        "4": "Month (number)"
+                    },
+                    {
+                        "5": "Day of month"
+                    },
+                    {
+                        "6": "temp_high"
+                    },
+                    {
+                        "7": "temp_avg"
+                    },
+                    {
+                        "8": "temp_low"
+                    },
+                    {
+                        "9": "dewpoint_high"
+                    },
+                    {
+                        "10": "dewpoint_avg"
+                    },
+                    {
+                        "11": "dewpoint_low"
+                    },
+                    {
+                        "12": "humiditypercent_high"
+                    },
+                    {
+                        "13": "humiditypercent_avg"
+                    },
+                    {
+                        "14": "humiditypercent_low"
+                    },
+                    {
+                        "15": "pressure_high"
+                    },
+                    {
+                        "16": "pressure_avg"
+                    },
+                    {
+                        "17": "pressure_low"
+                    },
+                    {
+                        "18": "visibility_high"
+                    },
+                    {
+                        "19": "visibility_avg"
+                    },
+                    {
+                        "20": "visibility_low"
+                    },
+                    {
+                        "21": "windspeed_high"
+                    },
+                    {
+                        "22": "windspeed_avg"
+                    },
+                    {
+                        "23": "precipice"
+                    },
+                    {
+                        "24": "Rain"
+                    },
+                    {
+                        "25": "Fog"
+                    },
+                    {
+                        "26": "Snow"
+                    },
+                    {
+                        "27": "Thunderstorm"
+                    },
+                    {
+                        "28": "Temperature DIFF"
+                    }
+                ]
+            },
+            {
+                "rightIncludeCols": [
+                    {
+                        "array-size": 3
+                    },
+                    {
+                        "0": "venueCity"
+                    },
+                    {
+                        "1": "time zones"
+                    },
+                    {
+                        "2": "hours to local time"
+                    }
+                ]
+            },
+            {
+                "leftIncludeAll": true
+            },
+            {
+                "rightIncludeAll": true
+            },
+            {
+                "rmLeftJoinCols": false
+            },
+            {
+                "rmRightJoinCols": true
+            },
+            {
+                "maxOpenFiles": 200
+            },
+            {
+                "rowKeySeparator": "_"
+            },
+            {
+                "enableHiLite": false
+            },
+            {
+                "numBitsInitial": 6
+            },
+            {
+                "numBitsMaximal": 32
+            },
+            {
+                "usedMemoryThreshold": 0.85,
+                "data_type": "xdouble"
+            },
+            {
+                "minAvailableMemory": 10000000,
+                "data_type": "xlong"
+            },
+            {
+                "memUseCollectionUsage": true
+            },
+            {
+                "version": "version_3"
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.102): {
+        "name": "Loop End",
+        "factory": "org.knime.base.node.meta.looper.LoopEndNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "addIterationColumn": true
+            },
+            {
+                "rowKeyPolicy": "APPEND_SUFFIX"
+            },
+            {
+                "ignoreEmptyTables": true
+            },
+            {
+                "tolerateColumnTypes": false
+            },
+            {
+                "tolerateChangingSpecs": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.104): {
+        "name": "Group Loop Start",
+        "factory": "org.knime.base.node.meta.looper.group.GroupLoopStartNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "GroupColNames_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "GroupColNames": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "time zones"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 40
+                            },
+                            {
+                                "0": "startTime"
+                            },
+                            {
+                                "1": "gameStatus"
+                            },
+                            {
+                                "2": "attendance"
+                            },
+                            {
+                                "3": "dayNight"
+                            },
+                            {
+                                "4": "homeTeamName"
+                            },
+                            {
+                                "5": "awayTeamName"
+                            },
+                            {
+                                "6": "venueCapacity"
+                            },
+                            {
+                                "7": "venueCity"
+                            },
+                            {
+                                "8": "venueState"
+                            },
+                            {
+                                "9": "awayFinalHits"
+                            },
+                            {
+                                "10": "awayFinalRuns"
+                            },
+                            {
+                                "11": "homeFinalHits"
+                            },
+                            {
+                                "12": "homeFinalRuns"
+                            },
+                            {
+                                "13": "Year"
+                            },
+                            {
+                                "14": "Month (number)"
+                            },
+                            {
+                                "15": "Day of month"
+                            },
+                            {
+                                "16": "temp_high"
+                            },
+                            {
+                                "17": "temp_avg"
+                            },
+                            {
+                                "18": "temp_low"
+                            },
+                            {
+                                "19": "dewpoint_high"
+                            },
+                            {
+                                "20": "dewpoint_avg"
+                            },
+                            {
+                                "21": "dewpoint_low"
+                            },
+                            {
+                                "22": "humiditypercent_high"
+                            },
+                            {
+                                "23": "humiditypercent_avg"
+                            },
+                            {
+                                "24": "humiditypercent_low"
+                            },
+                            {
+                                "25": "pressure_high"
+                            },
+                            {
+                                "26": "pressure_avg"
+                            },
+                            {
+                                "27": "pressure_low"
+                            },
+                            {
+                                "28": "visibility_high"
+                            },
+                            {
+                                "29": "visibility_avg"
+                            },
+                            {
+                                "30": "visibility_low"
+                            },
+                            {
+                                "31": "windspeed_high"
+                            },
+                            {
+                                "32": "windspeed_avg"
+                            },
+                            {
+                                "33": "precipice"
+                            },
+                            {
+                                "34": "Rain"
+                            },
+                            {
+                                "35": "Fog"
+                            },
+                            {
+                                "36": "Snow"
+                            },
+                            {
+                                "37": "Thunderstorm"
+                            },
+                            {
+                                "38": "Temperature DIFF"
+                            },
+                            {
+                                "39": "hours to local time"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.localdatetime.LocalDateTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "SortedInput_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "SortedInput": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.106): {
+        "name": "String to Duration",
+        "factory": "org.knime.time.node.convert.stringtodurationperiod.StringToDurationPeriodNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "col_select": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "hours to local time"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "venueCity"
+                            },
+                            {
+                                "1": "time zones"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceInclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "replace_or_append_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replace_or_append": "Replace selected columns"
+            },
+            {
+                "suffix_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "suffix": "(Duration)"
+            },
+            {
+                "duration_or_period_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "duration_or_period": "Automatic"
+            },
+            {
+                "cancel_on_fail_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "cancel_on_fail": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n94.107): {
+        "name": "Modify Time Zone",
+        "factory": "org.knime.time.node.manipulate.modifytimezone.ModifyTimeZoneNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "startTime"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.zoneddatetime.ZonedDateTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.duration.DurationValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "replace_or_append_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replace_or_append": "Replace selected columns"
+            },
+            {
+                "suffix_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "suffix": "_mod"
+            },
+            {
+                "time_zone_select_Internals": [
+                    {
+                        "SettingsModelID": "settingsmodel.date&time"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "time_zone_select": "US/Pacific",
+                "used_variable": "time zones"
+            },
+            {
+                "modify_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "modify_select": "Shift time zone"
+            }
+        ],
+        "port_count": 1
+    },
+    (n95): {
+        "name": "Legacy Date&Time to Date&Time",
+        "factory": "org.knime.time.node.convert.oldtonew.OldToNewTimeNodeFactory",
+        "bundle_name": "KNIME Date and Time Handling",
+        "bundle_symbolic_name": "org.knime.time",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "col_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "col_select": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "startTime"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 0
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "replace_or_append_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "replace_or_append": "Replace selected columns"
+            },
+            {
+                "suffix_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "suffix": "(new Date&Time)"
+            },
+            {
+                "type_bool_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "type_bool": true
+            },
+            {
+                "zone_bool_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "zone_bool": false
+            },
+            {
+                "time_zone_select_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "time_zone_select": "Europe/Berlin"
+            },
+            {
+                "newTypeEnum": "LOCAL_DATE"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110): {
+        "name": "Binning",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n105:1),
+            (n104:1)-->(n116:1),
+            (n105:1)-->(n104:1),
+            (n114:1)-->(META_OUT:1),
+            (n115:1)-->(n114:1),
+            (n116:1)-->(n117:1),
+            (n117:1)-->(n115:1)
+        }
+    },
+    (n110.104): {
+        "name": "Auto-Binner",
+        "factory": "org.knime.base.node.preproc.autobinner3.AutoBinnerLearnNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "column-filter": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 7
+                            },
+                            {
+                                "0": "attendance"
+                            },
+                            {
+                                "1": "temp_avg"
+                            },
+                            {
+                                "2": "dewpoint_avg"
+                            },
+                            {
+                                "3": "humiditypercent_avg"
+                            },
+                            {
+                                "4": "pressure_avg"
+                            },
+                            {
+                                "5": "visibility_avg"
+                            },
+                            {
+                                "6": "windspeed_avg"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 22
+                            },
+                            {
+                                "0": "Year"
+                            },
+                            {
+                                "1": "Month (number)"
+                            },
+                            {
+                                "2": "Day of month"
+                            },
+                            {
+                                "3": "temp_high"
+                            },
+                            {
+                                "4": "temp_low"
+                            },
+                            {
+                                "5": "dewpoint_high"
+                            },
+                            {
+                                "6": "dewpoint_low"
+                            },
+                            {
+                                "7": "humiditypercent_high"
+                            },
+                            {
+                                "8": "humiditypercent_low"
+                            },
+                            {
+                                "9": "pressure_high"
+                            },
+                            {
+                                "10": "pressure_low"
+                            },
+                            {
+                                "11": "visibility_high"
+                            },
+                            {
+                                "12": "visibility_low"
+                            },
+                            {
+                                "13": "windspeed_high"
+                            },
+                            {
+                                "14": "precipice"
+                            },
+                            {
+                                "15": "Rain"
+                            },
+                            {
+                                "16": "Fog"
+                            },
+                            {
+                                "17": "Snow"
+                            },
+                            {
+                                "18": "Thunderstorm"
+                            },
+                            {
+                                "19": "Temperature DIFF"
+                            },
+                            {
+                                "20": "Iteration"
+                            },
+                            {
+                                "21": "Hour"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.zoneddatetime.ZonedDateTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "method": "sampleQuantiles"
+            },
+            {
+                "binCount": 5
+            },
+            {
+                "equalityMethod": "width"
+            },
+            {
+                "integerBounds": false
+            },
+            {
+                "sampleQuantiles": [
+                    {
+                        "array-size": 5
+                    },
+                    {
+                        "0": 0.0,
+                        "data_type": "xdouble"
+                    },
+                    {
+                        "1": 0.25,
+                        "data_type": "xdouble"
+                    },
+                    {
+                        "2": 0.5,
+                        "data_type": "xdouble"
+                    },
+                    {
+                        "3": 0.75,
+                        "data_type": "xdouble"
+                    },
+                    {
+                        "4": 1.0,
+                        "data_type": "xdouble"
+                    }
+                ]
+            },
+            {
+                "binNaming": "edges"
+            },
+            {
+                "replaceColumn": false
+            },
+            {
+                "advancedFormatting": false
+            },
+            {
+                "outputFormat": "Standard"
+            },
+            {
+                "precision": 3
+            },
+            {
+                "precisionMode": "Decimal"
+            },
+            {
+                "roundingMode": "HALF_UP"
+            }
+        ],
+        "port_count": 2
+    },
+    (n110.105): {
+        "name": "Missing Value",
+        "factory": "org.knime.base.node.preproc.pmml.missingval.compute.MissingValueHandlerNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "columnSettings": [
+                    {
+                        "0": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "temp_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "1": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "dewpoint_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "2": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "pressure_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "3": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "visibility_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "4": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "windspeed_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "5": [
+                            {
+                                "colNames": [
+                                    {
+                                        "array-size": 1
+                                    },
+                                    {
+                                        "0": "humiditypercent_avg"
+                                    }
+                                ]
+                            },
+                            {
+                                "settings": [
+                                    {
+                                        "factoryID": "org.knime.base.node.preproc.pmml.missingval.pmml.RemoveRowMissingCellHandlerFactory"
+                                    },
+                                    {
+                                        "settings": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "dataTypeSettings": [
+                    {
+                        "org.knime.core.data.def.IntCell": [
+                            {
+                                "factoryID": "org.knime.base.node.preproc.pmml.missingval.handlers.DoNothingMissingCellHandlerFactory"
+                            },
+                            {
+                                "settings": []
+                            }
+                        ]
+                    },
+                    {
+                        "org.knime.core.data.time.zoneddatetime.ZonedDateTimeCell": [
+                            {
+                                "factoryID": "org.knime.base.node.preproc.pmml.missingval.handlers.DoNothingMissingCellHandlerFactory"
+                            },
+                            {
+                                "settings": []
+                            }
+                        ]
+                    },
+                    {
+                        "org.knime.core.data.def.StringCell": [
+                            {
+                                "factoryID": "org.knime.base.node.preproc.pmml.missingval.handlers.DoNothingMissingCellHandlerFactory"
+                            },
+                            {
+                                "settings": []
+                            }
+                        ]
+                    },
+                    {
+                        "org.knime.core.data.def.LongCell": [
+                            {
+                                "factoryID": "org.knime.base.node.preproc.pmml.missingval.handlers.DoNothingMissingCellHandlerFactory"
+                            },
+                            {
+                                "settings": []
+                            }
+                        ]
+                    },
+                    {
+                        "org.knime.core.data.def.DoubleCell": [
+                            {
+                                "factoryID": "org.knime.base.node.preproc.pmml.missingval.handlers.DoNothingMissingCellHandlerFactory"
+                            },
+                            {
+                                "settings": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 2
+    },
+    (n110.114): {
+        "name": "Binary Features",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n109:1),
+            (n109:1)-->(n110:1),
+            (n110:1)-->(n111:1),
+            (n111:1)-->(n112:1),
+            (n112:1)-->(META_OUT:1)
+        }
+    },
+    (n110.114.109): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 6
+                    },
+                    {
+                        "0": "// enter ordered set of rules, e.g.:"
+                    },
+                    {
+                        "1": "// $double column name$ > 5.0 => \"large\""
+                    },
+                    {
+                        "2": "// $string column name$ LIKE \"*blue*\" => \"small and blue\""
+                    },
+                    {
+                        "3": "// TRUE => \"default outcome\""
+                    },
+                    {
+                        "4": "$Snow$ = 1 => \"snow\""
+                    },
+                    {
+                        "5": "TRUE => \"no snow\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "prediction"
+            },
+            {
+                "replace-column-name": "Snow"
+            },
+            {
+                "append-column": false
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.114.110): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 6
+                    },
+                    {
+                        "0": "// enter ordered set of rules, e.g.:"
+                    },
+                    {
+                        "1": "// $double column name$ > 5.0 => \"large\""
+                    },
+                    {
+                        "2": "// $string column name$ LIKE \"*blue*\" => \"small and blue\""
+                    },
+                    {
+                        "3": "// TRUE => \"default outcome\""
+                    },
+                    {
+                        "4": "$Rain$ = 1 => \"rain\""
+                    },
+                    {
+                        "5": "TRUE => \"no rain\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "prediction"
+            },
+            {
+                "replace-column-name": "Rain"
+            },
+            {
+                "append-column": false
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.114.111): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 6
+                    },
+                    {
+                        "0": "// enter ordered set of rules, e.g.:"
+                    },
+                    {
+                        "1": "// $double column name$ > 5.0 => \"large\""
+                    },
+                    {
+                        "2": "// $string column name$ LIKE \"*blue*\" => \"small and blue\""
+                    },
+                    {
+                        "3": "// TRUE => \"default outcome\""
+                    },
+                    {
+                        "4": "$Fog$ = 1 => \"fog\""
+                    },
+                    {
+                        "5": "TRUE => \"no fog\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "prediction"
+            },
+            {
+                "replace-column-name": "Fog"
+            },
+            {
+                "append-column": false
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.114.112): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 6
+                    },
+                    {
+                        "0": "// enter ordered set of rules, e.g.:"
+                    },
+                    {
+                        "1": "// $double column name$ > 5.0 => \"large\""
+                    },
+                    {
+                        "2": "// $string column name$ LIKE \"*blue*\" => \"small and blue\""
+                    },
+                    {
+                        "3": "// TRUE => \"default outcome\""
+                    },
+                    {
+                        "4": "$Thunderstorm$ = 1 => \"thunderstorm\""
+                    },
+                    {
+                        "5": "TRUE => \"no thunderstorm\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "prediction"
+            },
+            {
+                "replace-column-name": "Thunderstorm"
+            },
+            {
+                "append-column": false
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115): {
+        "name": "Add prefixes",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n106:1),
+            (n106:1)-->(n114:1),
+            (n107:1)-->(n108:1),
+            (n108:1)-->(n109:1),
+            (n109:1)-->(n110:1),
+            (n110:1)-->(n111:1),
+            (n111:1)-->(n112:1),
+            (n112:1)-->(n113:1),
+            (n113:1)-->(META_OUT:1),
+            (n114:1)-->(n115:1),
+            (n115:1)-->(n116:1),
+            (n116:1)-->(n107:1)
+        }
+    },
+    (n110.115.106): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"temp_\", $temp_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "temp_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.107): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"dew_\", $dewpoint_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "dewpoint_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.108): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"hum_\", $humiditypercent_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "humiditypercent_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.109): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"HFH_\", $homeFinalHits [Binned]$)"
+            },
+            {
+                "replaced_column": "homeFinalHits [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.110): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"HFR_\", $homeFinalRuns [Binned]$)"
+            },
+            {
+                "replaced_column": "homeFinalRuns [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.111): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"AFR_\", $awayFinalRuns [Binned]$)"
+            },
+            {
+                "replaced_column": "awayFinalRuns [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.112): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"AFH_\", $awayFinalHits [Binned]$)"
+            },
+            {
+                "replaced_column": "awayFinalHits [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.113): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"cap_\", $venueCapacity [Binned]$)"
+            },
+            {
+                "replaced_column": "venueCapacity [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.114): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"vis_\", $visibility_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "visibility_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.115): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"press_\", $pressure_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "pressure_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.115.116): {
+        "name": "String Manipulation",
+        "factory": "org.knime.base.node.preproc.stringmanipulation.StringManipulationNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "expression": "join(\"wind_\", $windspeed_avg [Binned]$)"
+            },
+            {
+                "replaced_column": "windspeed_avg [Binned]"
+            },
+            {
+                "append_column": true
+            },
+            {
+                "test_compilation_on_dialog_close": true
+            },
+            {
+                "insert_missing_as_null": false
+            },
+            {
+                "return_type": "java.lang.String"
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.116): {
+        "name": "Math Formula",
+        "factory": "org.knime.ext.jep.JEPNodeFactory",
+        "bundle_name": "KNIME Math Expression Node",
+        "bundle_symbolic_name": "org.knime.ext.jep",
+        "bundle_version": "3.7.0.v201811261407",
+        "feature_name": "KNIME Math Expression (JEP)",
+        "feature_symbolic_name": "org.knime.features.ext.jep.feature.group",
+        "feature_version": "3.7.0.v201811261407",
+        "model": [
+            {
+                "expression": "$attendance$/$venueCapacity$"
+            },
+            {
+                "replaced_column": "attendance_ratio"
+            },
+            {
+                "append_column": false
+            },
+            {
+                "convert_to_int": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n110.117): {
+        "name": "Rule Engine",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 8
+                    },
+                    {
+                        "0": "// enter ordered set of rules, e.g.:"
+                    },
+                    {
+                        "1": "// $double column name$ > 5.0 => \"large\""
+                    },
+                    {
+                        "2": "// $string column name$ LIKE \"*blue*\" => \"small and blue\""
+                    },
+                    {
+                        "3": "// TRUE => \"default outcome\""
+                    },
+                    {
+                        "4": "$attendance_ratio$ < 0.25 => \"very low\""
+                    },
+                    {
+                        "5": "$attendance_ratio$ >= 0.25 AND $attendance_ratio$ < 0.5=> \"low\""
+                    },
+                    {
+                        "6": "$attendance_ratio$ >= 0.5 AND $attendance_ratio$ < 0.75=> \"high\""
+                    },
+                    {
+                        "7": "$attendance_ratio$ >= 0.75 => \"very high\""
+                    }
+                ]
+            },
+            {
+                "new-column-name": "prediction"
+            },
+            {
+                "replace-column-name": "attendance_ratio"
+            },
+            {
+                "append-column": false
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n125): {
+        "name": "Bar Chart (JavaScript)",
+        "factory": "org.knime.dynamic.js.v30.DynamicJSNodeFactory",
+        "bundle_name": "KNIME Dynamically Created JavaScript Nodes",
+        "bundle_symbolic_name": "org.knime.dynamic.js",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME JavaScript Views",
+        "feature_symbolic_name": "org.knime.features.js.views.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "displayFullscreenButton_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "displayFullscreenButton": true
+            },
+            {
+                "legend_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "legend": true
+            },
+            {
+                "enableHorizontalToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHorizontalToggle": true
+            },
+            {
+                "freq_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "freq": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "venueCapacity"
+                            },
+                            {
+                                "1": "Mean(attendance)"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "AttendanceGap"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "tooltip_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "tooltip": true
+            },
+            {
+                "title_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "title": "Full stadium?"
+            },
+            {
+                "enableSwitchMissValCat_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableSwitchMissValCat": true
+            },
+            {
+                "includeMissValCat_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "includeMissValCat": true
+            },
+            {
+                "processInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "processInMemory": true
+            },
+            {
+                "freqLabel_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "freqLabel": ""
+            },
+            {
+                "cat_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "cat": "homeTeamName"
+            },
+            {
+                "showWarnings_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "showWarnings": true
+            },
+            {
+                "enableSubtitleEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableSubtitleEdit": true
+            },
+            {
+                "publishSelection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "publishSelection": true
+            },
+            {
+                "showMaximum_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "showMaximum": true
+            },
+            {
+                "catLabel_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "catLabel": ""
+            },
+            {
+                "orientation_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "orientation": true
+            },
+            {
+                "displayClearSelectionButton_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "displayClearSelectionButton": true
+            },
+            {
+                "svg_Internals": [
+                    {
+                        "SettingsModelID": "SMID_svg"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "svg": [
+                    {
+                        "width": 600
+                    },
+                    {
+                        "height": 400
+                    },
+                    {
+                        "fullscreen": true
+                    },
+                    {
+                        "showFullscreen": true
+                    }
+                ]
+            },
+            {
+                "staggerLabels_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "staggerLabels": false
+            },
+            {
+                "enableTitleEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableTitleEdit": true
+            },
+            {
+                "enableSelection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableSelection": true
+            },
+            {
+                "sort_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sort": false
+            },
+            {
+                "enableStackedEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableStackedEdit": true
+            },
+            {
+                "enableAxisEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableAxisEdit": true
+            },
+            {
+                "reportOnMissingValues_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "reportOnMissingValues": true
+            },
+            {
+                "subtitle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subtitle": "Avg(Attendance) & stadium capacity by decreasing attendance gap"
+            },
+            {
+                "chartType_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "chartType": "Grouped"
+            },
+            {
+                "enableStaggerToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableStaggerToggle": true
+            },
+            {
+                "enableViewControls_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableViewControls": true
+            },
+            {
+                "aggr_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "aggr": "Sum"
+            },
+            {
+                "subscribeToSelection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subscribeToSelection": true
+            },
+            {
+                "enableMaximumValue_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableMaximumValue": true
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "maxRows": 2500
+            },
+            {
+                "generateImage": true
+            },
+            {
+                "customCSS": ""
+            }
+        ],
+        "port_count": 1
+    },
+    (n140): {
+        "name": "Sunburst Chart (JavaScript)",
+        "factory": "org.knime.dynamic.js.v30.DynamicJSNodeFactory",
+        "bundle_name": "KNIME Dynamically Created JavaScript Nodes",
+        "bundle_symbolic_name": "org.knime.dynamic.js",
+        "bundle_version": "3.7.1.v201901281201",
+        "feature_name": "KNIME JavaScript Views",
+        "feature_symbolic_name": "org.knime.features.js.views.feature.group",
+        "feature_version": "3.7.1.v201901281201",
+        "model": [
+            {
+                "legend_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "legend": true
+            },
+            {
+                "innerLabelStyleSelect_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "innerLabelStyleSelect": true
+            },
+            {
+                "pathColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_columnfilter"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "pathColumns": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 11
+                            },
+                            {
+                                "0": "homeTeamName"
+                            },
+                            {
+                                "1": "attendance_ratio"
+                            },
+                            {
+                                "2": "Rain"
+                            },
+                            {
+                                "3": "Fog"
+                            },
+                            {
+                                "4": "Snow"
+                            },
+                            {
+                                "5": "Thunderstorm"
+                            },
+                            {
+                                "6": "Day of week (name)"
+                            },
+                            {
+                                "7": "DayTime"
+                            },
+                            {
+                                "8": "temp_avg [Binned]"
+                            },
+                            {
+                                "9": "dewpoint_avg [Binned]"
+                            },
+                            {
+                                "10": "humiditypercent_avg [Binned]"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 17
+                            },
+                            {
+                                "0": "awayTeamName"
+                            },
+                            {
+                                "1": "attendance [Binned]"
+                            },
+                            {
+                                "2": "homeFinalHits [Binned]"
+                            },
+                            {
+                                "3": "time zones"
+                            },
+                            {
+                                "4": "gameStatus"
+                            },
+                            {
+                                "5": "startTime"
+                            },
+                            {
+                                "6": "venueCity"
+                            },
+                            {
+                                "7": "WeekOrWeekend"
+                            },
+                            {
+                                "8": "pressure_avg [Binned]"
+                            },
+                            {
+                                "9": "visibility_avg [Binned]"
+                            },
+                            {
+                                "10": "windspeed_avg [Binned]"
+                            },
+                            {
+                                "11": "awayFinalHits [Binned]"
+                            },
+                            {
+                                "12": "homeFinalRuns [Binned]"
+                            },
+                            {
+                                "13": "dayNight"
+                            },
+                            {
+                                "14": "venueState"
+                            },
+                            {
+                                "15": "venueCapacity [Binned]"
+                            },
+                            {
+                                "16": "awayFinalRuns [Binned]"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceExclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.zoneddatetime.ZonedDateTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "innerLabelText_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "innerLabelText": ""
+            },
+            {
+                "title_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "title": "Sunburst Chart"
+            },
+            {
+                "legendToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "legendToggle": true
+            },
+            {
+                "innerLabelStyle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "innerLabelStyle": "percentage"
+            },
+            {
+                "innerLabelToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "innerLabelToggle": true
+            },
+            {
+                "publishSelectionToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "publishSelectionToggle": true
+            },
+            {
+                "zoomable_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "zoomable": true
+            },
+            {
+                "highliting_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "highliting": true
+            },
+            {
+                "subscribeSelection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subscribeSelection": true
+            },
+            {
+                "enableSubtitleEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableSubtitleEdit": true
+            },
+            {
+                "publishSelection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "publishSelection": true
+            },
+            {
+                "subscribeFilterToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subscribeFilterToggle": true
+            },
+            {
+                "breadcrumbToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "breadcrumbToggle": true
+            },
+            {
+                "filterSmallNodesToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filterSmallNodesToggle": true
+            },
+            {
+                "svg_Internals": [
+                    {
+                        "SettingsModelID": "SMID_svg"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "svg": [
+                    {
+                        "width": 800
+                    },
+                    {
+                        "height": 600
+                    },
+                    {
+                        "fullscreen": true
+                    },
+                    {
+                        "showFullscreen": true
+                    }
+                ]
+            },
+            {
+                "enableTitleEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableTitleEdit": true
+            },
+            {
+                "filterSmallNodes_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filterSmallNodes": true
+            },
+            {
+                "showSelectedOnlyToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "showSelectedOnlyToggle": true
+            },
+            {
+                "subscribeFilter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subscribeFilter": true
+            },
+            {
+                "enableInnerLabelEdit_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableInnerLabelEdit": true
+            },
+            {
+                "breadcrumb_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "breadcrumb": true
+            },
+            {
+                "selection_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "selection": true
+            },
+            {
+                "donutHole_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "donutHole": true
+            },
+            {
+                "subscribeSelectionToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subscribeSelectionToggle": true
+            },
+            {
+                "showSelectedOnly_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "showSelectedOnly": false
+            },
+            {
+                "subtitle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "subtitle": ""
+            },
+            {
+                "freqColumn_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "freqColumn": "",
+                "isnull": true
+            },
+            {
+                "enableViewControls_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableViewControls": true
+            },
+            {
+                "filteringThreshold_Internals": [
+                    {
+                        "SettingsModelID": "SMID_double"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filteringThreshold": 0.001,
+                "data_type": "xdouble"
+            },
+            {
+                "innerLabel_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "innerLabel": true
+            },
+            {
+                "donutHoleToggle_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "donutHoleToggle": true
+            },
+            {
+                "hideInWizard": false
+            },
+            {
+                "maxRows": 2500
+            },
+            {
+                "generateImage": true
+            },
+            {
+                "customCSS": ""
+            }
+        ],
+        "port_count": 2
+    },
+    (n160): {
+        "name": "AttendanceGap",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n135:1),
+            (n132:1)-->(n134:1),
+            (n134:1)-->(n136:1),
+            (n135:1)-->(n132:1),
+            (n136:1)-->(META_OUT:1)
+        }
+    },
+    (n160.132): {
+        "name": "Math Formula",
+        "factory": "org.knime.ext.jep.JEPNodeFactory",
+        "bundle_name": "KNIME Math Expression Node",
+        "bundle_symbolic_name": "org.knime.ext.jep",
+        "bundle_version": "3.7.0.v201811261407",
+        "feature_name": "KNIME Math Expression (JEP)",
+        "feature_symbolic_name": "org.knime.features.ext.jep.feature.group",
+        "feature_version": "3.7.0.v201811261407",
+        "model": [
+            {
+                "expression": "($Max*(venueCapacity)$-$Mean(attendance)$)/$Max*(venueCapacity)$"
+            },
+            {
+                "replaced_column": "AttendanceGap"
+            },
+            {
+                "append_column": false
+            },
+            {
+                "convert_to_int": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n160.134): {
+        "name": "Sorter",
+        "factory": "org.knime.base.node.preproc.sorter.SorterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "incllist": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": "AttendanceGap"
+                    }
+                ]
+            },
+            {
+                "sortOrder": [
+                    {
+                        "array-size": 1
+                    },
+                    {
+                        "0": false
+                    }
+                ]
+            },
+            {
+                "sortinmemory": false
+            },
+            {
+                "missingToEnd": false
+            }
+        ],
+        "port_count": 1
+    },
+    (n160.135): {
+        "name": "GroupBy",
+        "factory": "org.knime.base.node.preproc.groupby.GroupByNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "grouByColumns_Internals": [
+                    {
+                        "SettingsModelID": "SMID_filterString"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "grouByColumns": [
+                    {
+                        "InclList": [
+                            {
+                                "array-size": 1
+                            },
+                            {
+                                "0": "homeTeamName"
+                            }
+                        ]
+                    },
+                    {
+                        "ExclList": [
+                            {
+                                "array-size": 56
+                            },
+                            {
+                                "0": "startTime"
+                            },
+                            {
+                                "1": "gameStatus"
+                            },
+                            {
+                                "2": "attendance"
+                            },
+                            {
+                                "3": "dayNight"
+                            },
+                            {
+                                "4": "awayTeamName"
+                            },
+                            {
+                                "5": "venueCapacity"
+                            },
+                            {
+                                "6": "venueCity"
+                            },
+                            {
+                                "7": "venueState"
+                            },
+                            {
+                                "8": "awayFinalHits"
+                            },
+                            {
+                                "9": "awayFinalRuns"
+                            },
+                            {
+                                "10": "homeFinalHits"
+                            },
+                            {
+                                "11": "homeFinalRuns"
+                            },
+                            {
+                                "12": "Year"
+                            },
+                            {
+                                "13": "Month (number)"
+                            },
+                            {
+                                "14": "Day of month"
+                            },
+                            {
+                                "15": "temp_high"
+                            },
+                            {
+                                "16": "temp_avg"
+                            },
+                            {
+                                "17": "temp_low"
+                            },
+                            {
+                                "18": "dewpoint_high"
+                            },
+                            {
+                                "19": "dewpoint_avg"
+                            },
+                            {
+                                "20": "dewpoint_low"
+                            },
+                            {
+                                "21": "humiditypercent_high"
+                            },
+                            {
+                                "22": "humiditypercent_avg"
+                            },
+                            {
+                                "23": "humiditypercent_low"
+                            },
+                            {
+                                "24": "pressure_high"
+                            },
+                            {
+                                "25": "pressure_avg"
+                            },
+                            {
+                                "26": "pressure_low"
+                            },
+                            {
+                                "27": "visibility_high"
+                            },
+                            {
+                                "28": "visibility_avg"
+                            },
+                            {
+                                "29": "visibility_low"
+                            },
+                            {
+                                "30": "windspeed_high"
+                            },
+                            {
+                                "31": "windspeed_avg"
+                            },
+                            {
+                                "32": "precipice"
+                            },
+                            {
+                                "33": "Rain"
+                            },
+                            {
+                                "34": "Fog"
+                            },
+                            {
+                                "35": "Snow"
+                            },
+                            {
+                                "36": "Thunderstorm"
+                            },
+                            {
+                                "37": "Temperature DIFF"
+                            },
+                            {
+                                "38": "time zones"
+                            },
+                            {
+                                "39": "Iteration"
+                            },
+                            {
+                                "40": "Day of week (name)"
+                            },
+                            {
+                                "41": "Hour"
+                            },
+                            {
+                                "42": "DayTime"
+                            },
+                            {
+                                "43": "WeekOrWeekend"
+                            },
+                            {
+                                "44": "attendance [Binned]"
+                            },
+                            {
+                                "45": "venueCapacity [Binned]"
+                            },
+                            {
+                                "46": "awayFinalHits [Binned]"
+                            },
+                            {
+                                "47": "awayFinalRuns [Binned]"
+                            },
+                            {
+                                "48": "homeFinalHits [Binned]"
+                            },
+                            {
+                                "49": "homeFinalRuns [Binned]"
+                            },
+                            {
+                                "50": "temp_avg [Binned]"
+                            },
+                            {
+                                "51": "dewpoint_avg [Binned]"
+                            },
+                            {
+                                "52": "humiditypercent_avg [Binned]"
+                            },
+                            {
+                                "53": "pressure_avg [Binned]"
+                            },
+                            {
+                                "54": "visibility_avg [Binned]"
+                            },
+                            {
+                                "55": "windspeed_avg [Binned]"
+                            }
+                        ]
+                    },
+                    {
+                        "keep_all_columns_selected": false
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "maxNoneNumericalVals": 10000
+            },
+            {
+                "enableHilite_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "enableHilite": false
+            },
+            {
+                "sortInMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "sortInMemory": false
+            },
+            {
+                "aggregationColumn": [
+                    {
+                        "columnNames": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "venueCapacity"
+                            },
+                            {
+                                "1": "attendance"
+                            }
+                        ]
+                    },
+                    {
+                        "columnTypes": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.LongCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            },
+                            {
+                                "1": [
+                                    {
+                                        "cell_class": "org.knime.core.data.def.LongCell"
+                                    },
+                                    {
+                                        "is_null": false
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aggregationMethod": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": "Maximum"
+                            },
+                            {
+                                "1": "Mean"
+                            }
+                        ]
+                    },
+                    {
+                        "inclMissingVals": [
+                            {
+                                "array-size": 2
+                            },
+                            {
+                                "0": false
+                            },
+                            {
+                                "1": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aggregationOperatorSettings": []
+            },
+            {
+                "patternAggregators": []
+            },
+            {
+                "dataTypeAggregators": []
+            },
+            {
+                "columnNamePolicy_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "columnNamePolicy": "Aggregation method (column name)"
+            },
+            {
+                "retainOrder_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "retainOrder": false
+            },
+            {
+                "inMemory_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "inMemory": false
+            },
+            {
+                "valueDelimiter_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "valueDelimiter": ", "
+            },
+            {
+                "nodeVersion_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "nodeVersion": 1
+            }
+        ],
+        "port_count": 1
+    },
+    (n160.136): {
+        "name": "Column Rename",
+        "factory": "org.knime.base.node.preproc.rename.RenameNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "all_columns": [
+                    {
+                        "0": [
+                            {
+                                "old_column_name": "Max*(venueCapacity)"
+                            },
+                            {
+                                "new_column_name": "venueCapacity"
+                            },
+                            {
+                                "new_column_type": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n161): {
+        "name": "Some Teams Only",
+        "type": "MetaNode",
+        "connections": {
+            (META_IN:1)-->(n141:1),
+            (n114:1)-->(META_OUT:1),
+            (n141:1)-->(n142:1),
+            (n142:1)-->(n114:1)
+        }
+    },
+    (n161.114): {
+        "name": "Column Resorter",
+        "factory": "org.knime.base.node.preproc.columnresorter.ColumnResorterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "ColumnOrder": [
+                    {
+                        "array-size": 41
+                    },
+                    {
+                        "0": "homeTeamName"
+                    },
+                    {
+                        "1": "attendance_ratio"
+                    },
+                    {
+                        "2": "awayTeamName"
+                    },
+                    {
+                        "3": "attendance [Binned]"
+                    },
+                    {
+                        "4": "homeFinalHits [Binned]"
+                    },
+                    {
+                        "5": "time zones"
+                    },
+                    {
+                        "6": "gameStatus"
+                    },
+                    {
+                        "7": "startTime"
+                    },
+                    {
+                        "8": "attendance"
+                    },
+                    {
+                        "9": "venueCity"
+                    },
+                    {
+                        "10": "Year"
+                    },
+                    {
+                        "11": "Month (number)"
+                    },
+                    {
+                        "12": "Day of month"
+                    },
+                    {
+                        "13": "precipice"
+                    },
+                    {
+                        "14": "Rain"
+                    },
+                    {
+                        "15": "Fog"
+                    },
+                    {
+                        "16": "Snow"
+                    },
+                    {
+                        "17": "Thunderstorm"
+                    },
+                    {
+                        "18": "Temperature DIFF"
+                    },
+                    {
+                        "19": "Day of week (name)"
+                    },
+                    {
+                        "20": "Hour"
+                    },
+                    {
+                        "21": "DayTime"
+                    },
+                    {
+                        "22": "WeekOrWeekend"
+                    },
+                    {
+                        "23": "temp_avg [Binned]"
+                    },
+                    {
+                        "24": "dewpoint_avg [Binned]"
+                    },
+                    {
+                        "25": "humiditypercent_avg [Binned]"
+                    },
+                    {
+                        "26": "pressure_avg [Binned]"
+                    },
+                    {
+                        "27": "visibility_avg [Binned]"
+                    },
+                    {
+                        "28": "windspeed_avg [Binned]"
+                    },
+                    {
+                        "29": "<any unknown new column>"
+                    },
+                    {
+                        "30": "awayFinalHits"
+                    },
+                    {
+                        "31": "homeFinalRuns"
+                    },
+                    {
+                        "32": "awayFinalHits [Binned]"
+                    },
+                    {
+                        "33": "homeFinalRuns [Binned]"
+                    },
+                    {
+                        "34": "dayNight"
+                    },
+                    {
+                        "35": "venueCapacity"
+                    },
+                    {
+                        "36": "venueState"
+                    },
+                    {
+                        "37": "awayFinalRuns"
+                    },
+                    {
+                        "38": "homeFinalHits"
+                    },
+                    {
+                        "39": "venueCapacity [Binned]"
+                    },
+                    {
+                        "40": "awayFinalRuns [Binned]"
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n161.141): {
+        "name": "Rule-based Row Filter",
+        "factory": "org.knime.base.node.rules.engine.RuleEngineFilterNodeFactory",
+        "bundle_name": "KNIME Java Snippet Nodes",
+        "bundle_symbolic_name": "org.knime.jsnippets",
+        "bundle_version": "3.7.1.v201901281154",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "rules": [
+                    {
+                        "array-size": 5
+                    },
+                    {
+                        "0": "$homeTeamName$=\"Orioles\"  => TRUE"
+                    },
+                    {
+                        "1": "$homeTeamName$=\"Pirates\" => TRUE"
+                    },
+                    {
+                        "2": "$homeTeamName$=\"Red Sox\" => TRUE"
+                    },
+                    {
+                        "3": "$homeTeamName$=\"Giants\"=> TRUE"
+                    },
+                    {
+                        "4": "$homeTeamName$=\"Brewers\" => TRUE"
+                    }
+                ]
+            },
+            {
+                "new-column-name": ""
+            },
+            {
+                "replace-column-name": ""
+            },
+            {
+                "append-column": true
+            },
+            {
+                "disallowLongOutputForCompatibility": false
+            },
+            {
+                "include_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "include": true
+            }
+        ],
+        "port_count": 1
+    },
+    (n161.142): {
+        "name": "Column Filter",
+        "factory": "org.knime.base.node.preproc.filter.column.DataColumnSpecFilterNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "column-filter": [
+                    {
+                        "filter-type": "STANDARD"
+                    },
+                    {
+                        "included_names": [
+                            {
+                                "array-size": 40
+                            },
+                            {
+                                "0": "startTime"
+                            },
+                            {
+                                "1": "gameStatus"
+                            },
+                            {
+                                "2": "attendance"
+                            },
+                            {
+                                "3": "dayNight"
+                            },
+                            {
+                                "4": "homeTeamName"
+                            },
+                            {
+                                "5": "awayTeamName"
+                            },
+                            {
+                                "6": "venueCapacity"
+                            },
+                            {
+                                "7": "venueCity"
+                            },
+                            {
+                                "8": "venueState"
+                            },
+                            {
+                                "9": "awayFinalHits"
+                            },
+                            {
+                                "10": "awayFinalRuns"
+                            },
+                            {
+                                "11": "homeFinalHits"
+                            },
+                            {
+                                "12": "homeFinalRuns"
+                            },
+                            {
+                                "13": "Year"
+                            },
+                            {
+                                "14": "Month (number)"
+                            },
+                            {
+                                "15": "Day of month"
+                            },
+                            {
+                                "16": "precipice"
+                            },
+                            {
+                                "17": "Rain"
+                            },
+                            {
+                                "18": "Fog"
+                            },
+                            {
+                                "19": "Snow"
+                            },
+                            {
+                                "20": "Thunderstorm"
+                            },
+                            {
+                                "21": "Temperature DIFF"
+                            },
+                            {
+                                "22": "time zones"
+                            },
+                            {
+                                "23": "Day of week (name)"
+                            },
+                            {
+                                "24": "Hour"
+                            },
+                            {
+                                "25": "DayTime"
+                            },
+                            {
+                                "26": "WeekOrWeekend"
+                            },
+                            {
+                                "27": "attendance [Binned]"
+                            },
+                            {
+                                "28": "venueCapacity [Binned]"
+                            },
+                            {
+                                "29": "awayFinalHits [Binned]"
+                            },
+                            {
+                                "30": "awayFinalRuns [Binned]"
+                            },
+                            {
+                                "31": "homeFinalHits [Binned]"
+                            },
+                            {
+                                "32": "homeFinalRuns [Binned]"
+                            },
+                            {
+                                "33": "temp_avg [Binned]"
+                            },
+                            {
+                                "34": "dewpoint_avg [Binned]"
+                            },
+                            {
+                                "35": "humiditypercent_avg [Binned]"
+                            },
+                            {
+                                "36": "pressure_avg [Binned]"
+                            },
+                            {
+                                "37": "visibility_avg [Binned]"
+                            },
+                            {
+                                "38": "windspeed_avg [Binned]"
+                            },
+                            {
+                                "39": "attendance_ratio"
+                            }
+                        ]
+                    },
+                    {
+                        "excluded_names": [
+                            {
+                                "array-size": 18
+                            },
+                            {
+                                "0": "temp_high"
+                            },
+                            {
+                                "1": "temp_avg"
+                            },
+                            {
+                                "2": "temp_low"
+                            },
+                            {
+                                "3": "dewpoint_high"
+                            },
+                            {
+                                "4": "dewpoint_avg"
+                            },
+                            {
+                                "5": "dewpoint_low"
+                            },
+                            {
+                                "6": "humiditypercent_high"
+                            },
+                            {
+                                "7": "humiditypercent_avg"
+                            },
+                            {
+                                "8": "humiditypercent_low"
+                            },
+                            {
+                                "9": "pressure_high"
+                            },
+                            {
+                                "10": "pressure_avg"
+                            },
+                            {
+                                "11": "pressure_low"
+                            },
+                            {
+                                "12": "visibility_high"
+                            },
+                            {
+                                "13": "visibility_avg"
+                            },
+                            {
+                                "14": "visibility_low"
+                            },
+                            {
+                                "15": "windspeed_high"
+                            },
+                            {
+                                "16": "windspeed_avg"
+                            },
+                            {
+                                "17": "Iteration"
+                            }
+                        ]
+                    },
+                    {
+                        "enforce_option": "EnforceInclusion"
+                    },
+                    {
+                        "name_pattern": [
+                            {
+                                "pattern": ""
+                            },
+                            {
+                                "type": "Wildcard"
+                            },
+                            {
+                                "caseSensitive": true
+                            }
+                        ]
+                    },
+                    {
+                        "datatype": [
+                            {
+                                "typelist": [
+                                    {
+                                        "org.knime.core.data.BooleanValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.date.DateAndTimeValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.DoubleValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.IntValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.LongValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.StringValue": false
+                                    },
+                                    {
+                                        "org.knime.core.data.time.zoneddatetime.ZonedDateTimeValue": false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "port_count": 1
+    },
+    (n163): {
+        "name": "Table Reader",
+        "factory": "org.knime.base.node.io.table.read.ReadTableNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "filename_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filename": "knime://knime.workflow/data/Weather.table"
+            },
+            {
+                "limitRows_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "limitRows": false
+            },
+            {
+                "limitRowsCount_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "limitRowsCount": 100000
+            }
+        ],
+        "port_count": 1
+    },
+    (n164): {
+        "name": "Table Reader",
+        "factory": "org.knime.base.node.io.table.read.ReadTableNodeFactory",
+        "bundle_name": "KNIME Base Nodes",
+        "bundle_symbolic_name": "org.knime.base",
+        "bundle_version": "3.7.1.v201901291053",
+        "feature_name": "KNIME Core",
+        "feature_symbolic_name": "org.knime.features.base.feature.group",
+        "feature_version": "3.7.1.v201901291053",
+        "model": [
+            {
+                "filename_Internals": [
+                    {
+                        "SettingsModelID": "SMID_string"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "filename": "knime://knime.workflow/data\\BaseballAttendance.table"
+            },
+            {
+                "limitRows_Internals": [
+                    {
+                        "SettingsModelID": "SMID_boolean"
+                    },
+                    {
+                        "EnabledStatus": true
+                    }
+                ]
+            },
+            {
+                "limitRows": false
+            },
+            {
+                "limitRowsCount_Internals": [
+                    {
+                        "SettingsModelID": "SMID_integer"
+                    },
+                    {
+                        "EnabledStatus": false
+                    }
+                ]
+            },
+            {
+                "limitRowsCount": 100000
+            }
+        ],
+        "port_count": 1
+    }
+}
+
+Workflow {
+    "connections": {
+        (n8:1)-->(n15:1),
+        (n15:1)-->(n16:1),
+        (n16:1)-->(n95:1),
+        (n30:1)-->(n94:1),
+        (n41:1)-->(n30:2),
+        (n85:1)~~>(n8),
+        (n86:1)-->(n90:1),
+        (n90:1)-->(n91:1),
+        (n91:1)-->(n41:1),
+        (n94:1)-->(n110:1),
+        (n94:1)-->(n160:1),
+        (n95:1)-->(n30:1),
+        (n110:1)-->(n161:1),
+        (n160:1)-->(n125:1),
+        (n161:1)-->(n140:1)
+    }
+}
